@@ -75,7 +75,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C14 — Family 3: API-Based Historical Data** (Open-Meteo coldest hour →
   video timestamp; introduces `get_coldest_hour`). Same test contract.
 
-- [ ] **C15 — Family 4: Multi-Repository Search** (near-duplicate repos,
+- [x] **C15 — Family 4: Multi-Repository Search** (near-duplicate repos,
   run_id filtering; introduces `search_and_filter_repositories`). Same test
   contract.
 
