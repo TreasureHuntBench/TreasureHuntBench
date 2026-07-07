@@ -79,7 +79,7 @@ the next. Checkboxes are updated as commits land.
   run_id filtering; introduces `search_and_filter_repositories`). Same test
   contract.
 
-- [ ] **C16 — Family 5: YouTube Timestamp Clues** (introduces
+- [x] **C16 — Family 5: YouTube Timestamp Clues** (introduces
   `timestamped_video_clue_extraction`). Same test contract.
 
 - [ ] **C17 — Family 6: Multilingual Clues** (DE/AR operational documents;
