@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "treasurehuntbench"
+version = "0.1.0"
+description = "TreasureHuntBench: a world-simulation benchmark for long-horizon agentic investigation"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.25",
+    "PyYAML>=5.4",
+    "Pillow>=8.0",
+]
+
+[project.scripts]
+thb = "thb.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=6.0"]
+
+[tool.setuptools.packages.find]
+include = ["thb*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

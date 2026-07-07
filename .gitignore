@@ -1,0 +1,32 @@
+# Credentials — never commit
+yt_api_key.json
+client_secret*.json
+token*.json
+*.pem
+*.key
+.env
+.env.*
+
+# Private benchmark data — never commit to public repo
+private/
+**/private_manifest*.json
+**/oracle_trace*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local working files
+scratch/
+*.log
