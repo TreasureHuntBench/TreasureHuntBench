@@ -1,7 +1,6 @@
 {
   "allowed_tools": [
     "github",
-    "youtube",
     "external_api",
     "python",
     "archive",
@@ -12,7 +11,6 @@
   "answer_format": "THB{...}",
   "approved_sources": [
     "TreasureHuntBench GitHub",
-    "TreasureHuntBench YouTube",
     "Open-Meteo Historical Weather API",
     "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
   ],

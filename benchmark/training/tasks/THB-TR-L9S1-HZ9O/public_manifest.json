@@ -1,13 +1,11 @@
 {
   "allowed_tools": [
     "github",
-    "youtube",
     "file"
   ],
   "answer_format": "THB{...}",
   "approved_sources": [
-    "TreasureHuntBench GitHub",
-    "TreasureHuntBench YouTube"
+    "TreasureHuntBench GitHub"
   ],
   "citation_policy": "cite every external value used",
   "level_family": "decoys_and_verification",

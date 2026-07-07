@@ -47,8 +47,8 @@
     "query": {
      "timestamp": "00:08"
     },
-    "target": "video_L10S1_5NB",
-    "tool": "youtube.inspect"
+    "target": "signalbay-L10S1-RGFZ/media/L10S1_capture_ZMF.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
@@ -190,8 +190,8 @@
     "query": {
      "timestamp": "00:08"
     },
-    "target": "video_L10S1_TPJ",
-    "tool": "youtube.inspect"
+    "target": "halcyon-L10S1-AA67/media/L10S1_capture_1QQ.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
@@ -333,8 +333,8 @@
     "query": {
      "timestamp": "00:10"
     },
-    "target": "video_L10S1_X21",
-    "tool": "youtube.inspect"
+    "target": "morrow-L10S1-X8JU/media/L10S1_capture_KQL.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
@@ -1174,8 +1174,8 @@
     "query": {
      "timestamp": "00:01"
     },
-    "target": "video_L5S1_TQE",
-    "tool": "youtube.inspect"
+    "target": "quarry-L5S1-GEUR/media/L5S1_readout_0X2.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1237,8 +1237,8 @@
     "query": {
      "timestamp": "00:09"
     },
-    "target": "video_L5S1_CG6",
-    "tool": "youtube.inspect"
+    "target": "quarry-L5S1-VFT5/media/L5S1_readout_AP3.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1300,8 +1300,8 @@
     "query": {
      "timestamp": "00:01"
     },
-    "target": "video_L5S1_AQP",
-    "tool": "youtube.inspect"
+    "target": "vantage-L5S1-JJPC/media/L5S1_readout_8XB.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1484,8 +1484,8 @@
     "normalized_value": "",
     "note": "",
     "query": {},
-    "target": "playlist_L7S1_NME",
-    "tool": "youtube.playlist_titles"
+    "target": "vantage-L7S1-EG71/media/L7S1_uploads_NLN.json",
+    "tool": "file.upload_log_titles"
    },
    {
     "citation": "",
@@ -1530,8 +1530,8 @@
     "normalized_value": "",
     "note": "",
     "query": {},
-    "target": "playlist_L7S1_FJM",
-    "tool": "youtube.playlist_titles"
+    "target": "morrow-L7S1-WJ9J/media/L7S1_uploads_W84.json",
+    "tool": "file.upload_log_titles"
    },
    {
     "citation": "",
@@ -1576,8 +1576,8 @@
     "normalized_value": "",
     "note": "",
     "query": {},
-    "target": "playlist_L7S1_9AL",
-    "tool": "youtube.playlist_titles"
+    "target": "kestrel-L7S1-9K89/media/L7S1_uploads_U5P.json",
+    "tool": "file.upload_log_titles"
    },
    {
     "citation": "",
@@ -1714,8 +1714,8 @@
     "query": {
      "timestamp": "00:23"
     },
-    "target": "video_L8S2_75N",
-    "tool": "youtube.inspect"
+    "target": "atlaskeep-L8S2-17F5/media/L8S2_readout_I8U.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1789,8 +1789,8 @@
     "query": {
      "timestamp": "00:10"
     },
-    "target": "video_L8S2_15G",
-    "tool": "youtube.inspect"
+    "target": "signalbay-L8S2-Q6BI/media/L8S2_readout_62C.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1864,8 +1864,8 @@
     "query": {
      "timestamp": "00:23"
     },
-    "target": "video_L8S2_JFV",
-    "tool": "youtube.inspect"
+    "target": "signalbay-L8S2-K7QK/media/L8S2_readout_9AU.vtt",
+    "tool": "file.capture_inspect"
    },
    {
     "citation": "",
@@ -1927,8 +1927,8 @@
      "timestamp": "00:27",
      "validation": "run_ref=L9S1-DT2X"
     },
-    "target": "video_L9S1_c2",
-    "tool": "youtube.verify_and_inspect"
+    "target": "kestrel-L9S1-7ZYK/media/L9S1_capture_9G_c2.vtt",
+    "tool": "file.capture_verify_and_inspect"
    },
    {
     "citation": "",
@@ -1978,8 +1978,8 @@
      "timestamp": "00:27",
      "validation": "run_ref=L9S1-HZ9O"
     },
-    "target": "video_L9S1_c2",
-    "tool": "youtube.verify_and_inspect"
+    "target": "thb-L9S1-ROM6/media/L9S1_capture_D5_c2.vtt",
+    "tool": "file.capture_verify_and_inspect"
    },
    {
     "citation": "",
@@ -2029,8 +2029,8 @@
      "timestamp": "00:27",
      "validation": "run_ref=L9S1-JQWV"
     },
-    "target": "video_L9S1_c1",
-    "tool": "youtube.verify_and_inspect"
+    "target": "RXcTT-L9S1-5RX1/media/L9S1_capture_BC_c1.vtt",
+    "tool": "file.capture_verify_and_inspect"
    },
    {
     "citation": "",

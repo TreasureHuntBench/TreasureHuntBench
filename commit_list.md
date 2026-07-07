@@ -138,7 +138,7 @@ the next. Checkboxes are updated as commits land.
   `titles_list` with oracle handlers and trace matching; families 5, 7,
   8.2, 9, 10 reworked; templates and skill descriptions neutralized.
 
-- [ ] **C31 — Regenerate the video-free benchmark.** Rebuild all 7 worlds
+- [x] **C31 — Regenerate the video-free benchmark.** Rebuild all 7 worlds
   with the same seeds, revalidate, refresh benchmark/ metadata and
   training answers.
 

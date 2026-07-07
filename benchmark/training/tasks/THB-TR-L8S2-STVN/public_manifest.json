@@ -1,7 +1,6 @@
 {
   "allowed_tools": [
     "github",
-    "youtube",
     "external_api",
     "memory",
     "file"
@@ -9,7 +8,6 @@
   "answer_format": "THB{...}",
   "approved_sources": [
     "TreasureHuntBench GitHub",
-    "TreasureHuntBench YouTube",
     "Open-Meteo Historical Weather API"
   ],
   "citation_policy": "cite every external value used",
