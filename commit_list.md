@@ -60,7 +60,7 @@ the next. Checkboxes are updated as commits land.
   writes the same tree locally. Tests: dry-run tree correctness; live smoke
   test against one scratch repo in the org.
 
-- [ ] **C11 — YouTube artifact generator.** `thb/gen/youtube_pub.py`: timed
+- [x] **C11 — YouTube artifact generator.** `thb/gen/youtube_pub.py`: timed
   text frames (Pillow), `.vtt` captions, metadata json, playlist manifests,
   local mirror layout; mp4 assembly when ffmpeg is present; optional unlisted
   upload path using local OAuth credentials (never committed). Tests: mirror
