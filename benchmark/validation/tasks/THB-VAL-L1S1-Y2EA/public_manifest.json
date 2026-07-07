@@ -1,0 +1,23 @@
+{
+  "allowed_tools": [
+    "github",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "basic_clue_following",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L1S1_start_Y2EA.md",
+    "organization": "TreasureHuntBench",
+    "repository": "halcyon-L1S1-YUI0",
+    "type": "github_repository"
+  },
+  "step_budget": 40,
+  "task_id": "THB-VAL-L1S1-Y2EA",
+  "time_budget_minutes": 60
+}

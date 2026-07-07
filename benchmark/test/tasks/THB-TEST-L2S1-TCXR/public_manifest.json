@@ -1,0 +1,27 @@
+{
+  "allowed_tools": [
+    "github",
+    "browser",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Wikipedia REST page summary",
+    "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "real_website_navigation",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L2S1_start_TCXR.md",
+    "organization": "TreasureHuntBench",
+    "repository": "quarry-L2S1-KWOC",
+    "type": "github_repository"
+  },
+  "step_budget": 80,
+  "task_id": "THB-TEST-L2S1-TCXR",
+  "time_budget_minutes": 60
+}

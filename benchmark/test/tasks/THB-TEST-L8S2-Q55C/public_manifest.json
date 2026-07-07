@@ -1,0 +1,28 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "external_api",
+    "memory",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube",
+    "Open-Meteo Historical Weather API"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "memory_and_skill_transfer",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L8S2_start_Q55C.md",
+    "organization": "TreasureHuntBench",
+    "repository": "quarry-L8S2-TKLA",
+    "type": "github_repository"
+  },
+  "step_budget": 150,
+  "task_id": "THB-TEST-L8S2-Q55C",
+  "time_budget_minutes": 60
+}

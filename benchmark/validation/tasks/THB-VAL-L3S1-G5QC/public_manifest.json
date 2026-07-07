@@ -1,0 +1,25 @@
+{
+  "allowed_tools": [
+    "github",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Open-Meteo Historical Weather API"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "api_historical_data",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L3S1_start_G5QC.md",
+    "organization": "TreasureHuntBench",
+    "repository": "vantage-L3S1-RT1C",
+    "type": "github_repository"
+  },
+  "step_budget": 80,
+  "task_id": "THB-VAL-L3S1-G5QC",
+  "time_budget_minutes": 60
+}

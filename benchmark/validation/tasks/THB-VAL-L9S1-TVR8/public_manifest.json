@@ -1,0 +1,25 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "decoys_and_verification",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L9S1_start_TVR8.md",
+    "organization": "TreasureHuntBench",
+    "repository": "halcyon-L9S1-8GDM",
+    "type": "github_repository"
+  },
+  "step_budget": 120,
+  "task_id": "THB-VAL-L9S1-TVR8",
+  "time_budget_minutes": 60
+}

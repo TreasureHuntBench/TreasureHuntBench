@@ -1,0 +1,32 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "external_api",
+    "python",
+    "archive",
+    "translation",
+    "memory",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube",
+    "Open-Meteo Historical Weather API",
+    "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "grand_multi_source_hunt",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L10S1_start_7NX6.md",
+    "organization": "TreasureHuntBench",
+    "repository": "ledgerworks-L10S1-28IN",
+    "type": "github_repository"
+  },
+  "step_budget": 400,
+  "task_id": "THB-TEST-L10S1-7NX6",
+  "time_budget_minutes": 60
+}

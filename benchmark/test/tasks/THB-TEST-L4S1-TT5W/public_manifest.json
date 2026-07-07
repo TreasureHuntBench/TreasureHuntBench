@@ -1,0 +1,25 @@
+{
+  "allowed_tools": [
+    "github",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "multi_repository_search",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L4S1_start_TT5W.md",
+    "organization": "TreasureHuntBench",
+    "repository": "atlaskeep-L4S1-TW6V",
+    "type": "github_repository"
+  },
+  "step_budget": 120,
+  "task_id": "THB-TEST-L4S1-TT5W",
+  "time_budget_minutes": 60
+}

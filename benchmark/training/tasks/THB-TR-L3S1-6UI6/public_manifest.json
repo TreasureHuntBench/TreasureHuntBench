@@ -1,0 +1,25 @@
+{
+  "allowed_tools": [
+    "github",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Open-Meteo Historical Weather API"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "api_historical_data",
+  "memory_mode": "level_persistent",
+  "split": "training",
+  "start": {
+    "file": "runbooks/L3S1_start_6UI6.md",
+    "organization": "TreasureHuntBench",
+    "repository": "morrow-L3S1-U3J0",
+    "type": "github_repository"
+  },
+  "step_budget": 80,
+  "task_id": "THB-TR-L3S1-6UI6",
+  "time_budget_minutes": 60
+}

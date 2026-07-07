@@ -127,7 +127,7 @@ the next. Checkboxes are updated as commits land.
   manifests, trace format, scoring, split policy, security rules, dataset
   card skeleton.
 
-- [ ] **C28 — Benchmark generation.** Generate the MVP benchmark locally:
+- [x] **C28 — Benchmark generation.** Generate the MVP benchmark locally:
   training/validation/test splits across families with per-split policies
   (public answers for training; hidden manifests under `private/` for
   val/test); run all validators; write split index files.

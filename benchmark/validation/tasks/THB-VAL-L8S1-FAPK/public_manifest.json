@@ -1,0 +1,24 @@
+{
+  "allowed_tools": [
+    "github",
+    "memory",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "memory_and_skill_transfer",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L8S1_start_FAPK.md",
+    "organization": "TreasureHuntBench",
+    "repository": "RXcTT-L8S1-CCQR",
+    "type": "github_repository"
+  },
+  "step_budget": 40,
+  "task_id": "THB-VAL-L8S1-FAPK",
+  "time_budget_minutes": 60
+}

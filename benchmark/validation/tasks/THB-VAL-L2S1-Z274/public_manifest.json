@@ -1,0 +1,27 @@
+{
+  "allowed_tools": [
+    "github",
+    "browser",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Wikipedia REST page summary",
+    "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "real_website_navigation",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L2S1_start_Z274.md",
+    "organization": "TreasureHuntBench",
+    "repository": "halcyon-L2S1-OOIV",
+    "type": "github_repository"
+  },
+  "step_budget": 80,
+  "task_id": "THB-VAL-L2S1-Z274",
+  "time_budget_minutes": 60
+}

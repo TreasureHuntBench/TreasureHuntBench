@@ -1,0 +1,26 @@
+{
+  "allowed_tools": [
+    "github",
+    "external_api",
+    "file",
+    "translation"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "multilingual_cross_lingual",
+  "memory_mode": "level_persistent",
+  "split": "training",
+  "start": {
+    "file": "language_pack/L6S1_de_QF6W.md",
+    "organization": "TreasureHuntBench",
+    "repository": "quarry-L6S1-8NZ5",
+    "type": "github_repository"
+  },
+  "step_budget": 100,
+  "task_id": "THB-TR-L6S1-GV0C",
+  "time_budget_minutes": 60
+}

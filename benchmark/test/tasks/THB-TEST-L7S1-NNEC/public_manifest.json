@@ -1,0 +1,26 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "python",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "encoded_hidden_messages",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L7S1_start_NNEC.md",
+    "organization": "TreasureHuntBench",
+    "repository": "halcyon-L7S1-JAES",
+    "type": "github_repository"
+  },
+  "step_budget": 100,
+  "task_id": "THB-TEST-L7S1-NNEC",
+  "time_budget_minutes": 60
+}

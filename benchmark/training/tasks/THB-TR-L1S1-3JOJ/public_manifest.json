@@ -1,0 +1,23 @@
+{
+  "allowed_tools": [
+    "github",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "basic_clue_following",
+  "memory_mode": "level_persistent",
+  "split": "training",
+  "start": {
+    "file": "runbooks/L1S1_start_3JOJ.md",
+    "organization": "TreasureHuntBench",
+    "repository": "kestrel-L1S1-JZFE",
+    "type": "github_repository"
+  },
+  "step_budget": 40,
+  "task_id": "THB-TR-L1S1-3JOJ",
+  "time_budget_minutes": 60
+}

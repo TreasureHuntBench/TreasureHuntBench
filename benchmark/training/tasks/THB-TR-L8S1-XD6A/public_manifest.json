@@ -1,0 +1,24 @@
+{
+  "allowed_tools": [
+    "github",
+    "memory",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "memory_and_skill_transfer",
+  "memory_mode": "level_persistent",
+  "split": "training",
+  "start": {
+    "file": "runbooks/L8S1_start_XD6A.md",
+    "organization": "TreasureHuntBench",
+    "repository": "halcyon-L8S1-SJ0Q",
+    "type": "github_repository"
+  },
+  "step_budget": 40,
+  "task_id": "THB-TR-L8S1-XD6A",
+  "time_budget_minutes": 60
+}

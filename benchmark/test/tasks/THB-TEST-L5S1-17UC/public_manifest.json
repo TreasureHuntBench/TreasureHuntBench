@@ -1,0 +1,27 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "external_api",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube",
+    "Open-Meteo Historical Weather API"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "youtube_timestamp_and_metadata",
+  "memory_mode": "level_persistent",
+  "split": "test",
+  "start": {
+    "file": "runbooks/L5S1_start_17UC.md",
+    "organization": "TreasureHuntBench",
+    "repository": "RXcTT-L5S1-RD1I",
+    "type": "github_repository"
+  },
+  "step_budget": 100,
+  "task_id": "THB-TEST-L5S1-17UC",
+  "time_budget_minutes": 60
+}

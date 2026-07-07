@@ -1,0 +1,28 @@
+{
+  "allowed_tools": [
+    "github",
+    "youtube",
+    "external_api",
+    "memory",
+    "file"
+  ],
+  "answer_format": "THB{...}",
+  "approved_sources": [
+    "TreasureHuntBench GitHub",
+    "TreasureHuntBench YouTube",
+    "Open-Meteo Historical Weather API"
+  ],
+  "citation_policy": "cite every external value used",
+  "level_family": "memory_and_skill_transfer",
+  "memory_mode": "level_persistent",
+  "split": "validation",
+  "start": {
+    "file": "runbooks/L8S2_start_AKEK.md",
+    "organization": "TreasureHuntBench",
+    "repository": "atlaskeep-L8S2-OTM0",
+    "type": "github_repository"
+  },
+  "step_budget": 150,
+  "task_id": "THB-VAL-L8S2-AKEK",
+  "time_budget_minutes": 60
+}

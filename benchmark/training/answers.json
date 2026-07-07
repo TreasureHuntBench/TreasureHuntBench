@@ -1,0 +1,2057 @@
+{
+ "THB-TR-L10S1-D4L0": {
+  "final_token": "THB{0PmP8ceeXyJFlmzFcNn4MQDw}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L10S1-RGFZ/runbooks/L10S1_start_D4L0.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L10S1-RGFZ/records/L10S1_event_2WX.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "08",
+    "note": "",
+    "query": {
+     "city": "Stuttgart, Germany",
+     "date": "2018-02-26",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "series_id=GC=F",
+      "observation_date=2016-06-08",
+      "rounding_rule=round_nearest_integer"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:08"
+    },
+    "target": "video_L10S1_5NB",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1260",
+    "note": "",
+    "query": {
+     "date": "2016-06-08",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "signalbay-L10S1-1260-C3",
+      "signalbay-L10S1-1260-D7",
+      "signalbay-L10S1-1260-IS"
+     ],
+     "selected": "signalbay-L10S1-1260-C3"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "signalbay-L10S1-1260-*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L10S1-1260-C3/language_pack/L10S1_de_79MW.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "registry/L10S1_U2L_survey.md"
+    },
+    "target": "signalbay-L10S1-1260-C3",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "1260",
+      "packets/bundle_L10S1_I1R.zip",
+      "knk-1260"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "1260"
+    },
+    "target": "signalbay-L10S1-1260-C3/tables/L10S1_index_1260.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "arcname": "briefs/L10S1_D4L0_ar.md"
+    },
+    "target": "signalbay-L10S1-1260-C3/packets/bundle_L10S1_I1R.zip",
+    "tool": "archive.read_entry"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L10S1-1260-C3/ledgers/L10S1_4V2_ledger.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L10S1-I8Z6": {
+  "final_token": "THB{72i5gwevYo7CdcmWddnmm5EU}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L10S1-AA67/runbooks/L10S1_start_I8Z6.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L10S1-AA67/records/L10S1_event_VM4.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "08",
+    "note": "",
+    "query": {
+     "city": "Dresden, Germany",
+     "date": "2018-02-26",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "series_id=GC=F",
+      "observation_date=2014-11-05",
+      "rounding_rule=round_nearest_integer"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:08"
+    },
+    "target": "video_L10S1_TPJ",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1145",
+    "note": "",
+    "query": {
+     "date": "2014-11-05",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "halcyon-L10S1-1145-DW",
+      "halcyon-L10S1-1145-LQ",
+      "halcyon-L10S1-1145-VW"
+     ],
+     "selected": "halcyon-L10S1-1145-LQ"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "halcyon-L10S1-1145-*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L10S1-1145-LQ/language_pack/L10S1_de_WPPJ.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "manifests/L10S1_OUP_survey.md"
+    },
+    "target": "halcyon-L10S1-1145-LQ",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "1145",
+      "packets/bundle_L10S1_69T.zip",
+      "k3i-1145"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "1145"
+    },
+    "target": "halcyon-L10S1-1145-LQ/tables/L10S1_index_1145.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "arcname": "briefs/L10S1_I8Z6_ar.md"
+    },
+    "target": "halcyon-L10S1-1145-LQ/packets/bundle_L10S1_69T.zip",
+    "tool": "archive.read_entry"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "halcyon-L10S1-1145-LQ/media/L10S1_OUT_log.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L10S1-MAJW": {
+  "final_token": "THB{Y3ulhWwxN0Ormew1L0Wdycg7}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L10S1-X8JU/runbooks/L10S1_start_MAJW.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L10S1-X8JU/records/L10S1_event_L0T.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "10",
+    "note": "",
+    "query": {
+     "city": "Zurich, Switzerland",
+     "date": "2016-01-21",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "series_id=GC=F",
+      "observation_date=2016-06-08",
+      "rounding_rule=round_nearest_integer"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:10"
+    },
+    "target": "video_L10S1_X21",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1260",
+    "note": "",
+    "query": {
+     "date": "2016-06-08",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "morrow-L10S1-1260-27",
+      "morrow-L10S1-1260-8H",
+      "morrow-L10S1-1260-BN"
+     ],
+     "selected": "morrow-L10S1-1260-27"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "morrow-L10S1-1260-*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L10S1-1260-27/language_pack/L10S1_de_9VG9.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "language_pack/L10S1_I4J_log.md"
+    },
+    "target": "morrow-L10S1-1260-27",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "1260",
+      "packets/bundle_L10S1_A4W.zip",
+      "keq-1260"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "1260"
+    },
+    "target": "morrow-L10S1-1260-27/tables/L10S1_index_1260.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "arcname": "briefs/L10S1_MAJW_ar.md"
+    },
+    "target": "morrow-L10S1-1260-27/packets/bundle_L10S1_A4W.zip",
+    "tool": "archive.read_entry"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "morrow-L10S1-1260-27/language_pack/L10S1_E81_log.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L1S1-3JOJ": {
+  "final_token": "THB{oYRlVnK2xcZBSxA31dSzgKNC}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L1S1-JZFE/runbooks/L1S1_start_3JOJ.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L1S1-JZFE/records/L1S1_JQ3_ref.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "kestrel-L1S1-AI8C/manifests/L1S1_CG6_ledger.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L1S1-A80L": {
+  "final_token": "THB{S6QcpX0hxqiKKPwKf90xKHGY}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L1S1-AVQG/runbooks/L1S1_start_A80L.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L1S1-AVQG/records/L1S1_TE8_brief.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "atlaskeep-L1S1-87B0/media/L1S1_CIT_ledger.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L1S1-QZWO": {
+  "final_token": "THB{9WacyVSoHmFTszzsS02FOYJq}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L1S1-LR16/runbooks/L1S1_start_QZWO.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L1S1-LR16/records/L1S1_TWX_log.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "atlaskeep-L1S1-JAJZ/language_pack/L1S1_DR4_survey.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L2S1-JPLV": {
+  "final_token": "THB{W2ZDlTTAwWd1fUKyX3QQUfTV}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "ledgerworks-L2S1-4FOT/runbooks/L2S1_start_JPLV.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Wikimedia REST API page summary, https://en.wikipedia.org/api/rest_v1/",
+    "extracted": {},
+    "normalized_value": "Q1055",
+    "note": "",
+    "query": {
+     "field": "wikibase_item",
+     "page": "Hamburg"
+    },
+    "target": "",
+    "tool": "api.Wikipedia REST page summary"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "Q1055",
+      "reports/L2S1_SVL_route.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "Q1055"
+    },
+    "target": "ledgerworks-L2S1-4FOT/records/L2S1_7FN_brief.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "ledgerworks-L2S1-4FOT/reports/L2S1_SVL_route.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1282",
+    "note": "",
+    "query": {
+     "date": "2019-03-05",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "ledgerworks_1282_4S/notes/L2S1_7DV_ref.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L2S1-PPHO": {
+  "final_token": "THB{TWgtzqxA43cmjo2CNPYGv5K4}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "ledgerworks-L2S1-TTWR/runbooks/L2S1_start_PPHO.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Wikimedia REST API page summary, https://en.wikipedia.org/api/rest_v1/",
+    "extracted": {},
+    "normalized_value": "Q365",
+    "note": "",
+    "query": {
+     "field": "wikibase_item",
+     "page": "Cologne"
+    },
+    "target": "",
+    "tool": "api.Wikipedia REST page summary"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "Q365",
+      "notes/L2S1_N8F_index.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "Q365"
+    },
+    "target": "ledgerworks-L2S1-TTWR/bundles/L2S1_VJR_bundle.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "ledgerworks-L2S1-TTWR/notes/L2S1_N8F_index.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1462",
+    "note": "",
+    "query": {
+     "date": "2019-11-13",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "ledgerworks_1462_MQ/notes/L2S1_0MW_event.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L2S1-VBYQ": {
+  "final_token": "THB{iOgQ32Ascunx9hHAo668iQGG}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L2S1-2YEU/runbooks/L2S1_start_VBYQ.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Wikimedia REST API page summary, https://en.wikipedia.org/api/rest_v1/",
+    "extracted": {},
+    "normalized_value": "Q2079",
+    "note": "",
+    "query": {
+     "field": "wikibase_item",
+     "page": "Leipzig"
+    },
+    "target": "",
+    "tool": "api.Wikipedia REST page summary"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "Q2079",
+      "archive/L2S1_6L8_ledger.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "Q2079"
+    },
+    "target": "halcyon-L2S1-2YEU/runbooks/L2S1_9S8_brief.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L2S1-2YEU/archive/L2S1_6L8_ledger.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1148",
+    "note": "",
+    "query": {
+     "date": "2015-03-17",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "halcyon_1148_PF/exports/L2S1_R2L_brief.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L3S1-6UI6": {
+  "final_token": "THB{RR1aHFdMuFV1ic1PrBmbb2ne}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L3S1-U3J0/runbooks/L3S1_start_6UI6.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "09",
+    "note": "",
+    "query": {
+     "city": "Hamburg, Germany",
+     "date": "2015-02-03",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "09",
+      "packets/L3S1_TS9_survey.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "09"
+    },
+    "target": "morrow-L3S1-U3J0/records/L3S1_83E_index.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L3S1-U3J0/packets/L3S1_TS9_survey.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "morrow-L3S1-LAQU/reports/L3S1_6EV_index.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L3S1-JYUH": {
+  "final_token": "THB{2FAHBa0yOD32ikRBbi64nFkK}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L3S1-BVO7/runbooks/L3S1_start_JYUH.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "23",
+    "note": "",
+    "query": {
+     "city": "Berlin, Germany",
+     "date": "2015-02-03",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "23",
+      "packets/L3S1_YNY_bundle.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "23"
+    },
+    "target": "halcyon-L3S1-BVO7/packets/L3S1_0ER_index.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L3S1-BVO7/packets/L3S1_YNY_bundle.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "halcyon-L3S1-VOQ4/docs/L3S1_0W1_log.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L3S1-N9LH": {
+  "final_token": "THB{DLQZstJpoLiVinepDHFJyQHQ}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L3S1-02F7/runbooks/L3S1_start_N9LH.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "23",
+    "note": "",
+    "query": {
+     "city": "Passau, Germany",
+     "date": "2015-02-03",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "row": [
+      "23",
+      "docs/L3S1_K35_brief.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "key": "23"
+    },
+    "target": "vantage-L3S1-02F7/exports/L3S1_QGE_ref.csv",
+    "tool": "file.csv_row"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L3S1-02F7/docs/L3S1_K35_brief.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "vantage-L3S1-B8R8/exports/L3S1_DCI_review.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L4S1-1GPW": {
+  "final_token": "THB{ISIGY1n0uCr9uemTNaes40T2}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L4S1-M6QT/runbooks/L4S1_start_1GPW.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1462",
+    "note": "",
+    "query": {
+     "date": "2019-11-13",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "quarry_1462_2W",
+      "quarry_1462_6P",
+      "quarry_1462_FO",
+      "quarry_1462_YU"
+     ],
+     "selected": "quarry_1462_6P"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "quarry_1462_*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry_1462_6P/records/quarry_1462_6P.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "quarry-L4S1-TTNU/reports/L4S1_EDI_review.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L4S1-LXHX": {
+  "final_token": "THB{9ENx1JoFylLdCIb0mfbMsJhx}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L4S1-DCLF/runbooks/L4S1_start_LXHX.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1202",
+    "note": "",
+    "query": {
+     "date": "2018-10-02",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "morrow_1202_5U",
+      "morrow_1202_68",
+      "morrow_1202_JO",
+      "morrow_1202_MW"
+     ],
+     "selected": "morrow_1202_MW"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "morrow_1202_*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow_1202_MW/records/morrow_1202_MW.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "morrow-L4S1-SPV3/tables/L4S1_9IH_brief.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L4S1-RXWE": {
+  "final_token": "THB{n7CkrJLBrmo6sTOo9ROxDaPe}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "RXcTT-L4S1-I7US/runbooks/L4S1_start_RXWE.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1933",
+    "note": "",
+    "query": {
+     "date": "2020-08-11",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "matches": [
+      "RXcTT_1933_4R",
+      "RXcTT_1933_6C",
+      "RXcTT_1933_RJ",
+      "RXcTT_1933_XP"
+     ],
+     "selected": "RXcTT_1933_XP"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "pattern": "RXcTT_1933_*"
+    },
+    "target": "",
+    "tool": "github.search_repositories"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "RXcTT_1933_XP/records/RXcTT_1933_XP.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "RXcTT-L4S1-NPYC/tables/L4S1_5CY_brief.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L5S1-0XDW": {
+  "final_token": "THB{e4Ik33fGbtC724qZ0N3CqIAy}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L5S1-GEUR/runbooks/L5S1_start_0XDW.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "01",
+    "note": "",
+    "query": {
+     "city": "Vienna, Austria",
+     "date": "2020-12-30",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=quarry-L5S1-BIE1",
+      "document=records/L5S1_CJA_brief.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:01"
+    },
+    "target": "video_L5S1_TQE",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L5S1-BIE1/records/L5S1_CJA_brief.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "quarry-L5S1-BIE1/registry/L5S1_D2M_ledger.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L5S1-BLFX": {
+  "final_token": "THB{vzRHOxKrWVZ1eVYeihBxGCqW}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L5S1-VFT5/runbooks/L5S1_start_BLFX.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "09",
+    "note": "",
+    "query": {
+     "city": "Berlin, Germany",
+     "date": "2019-01-23",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=quarry-L5S1-M9WW",
+      "document=registry/L5S1_R79_survey.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:09"
+    },
+    "target": "video_L5S1_CG6",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L5S1-M9WW/registry/L5S1_R79_survey.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "quarry-L5S1-M9WW/records/L5S1_YDB_bundle.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L5S1-YJ1I": {
+  "final_token": "THB{Ui3lhwRSauG8jOde0WaEkgAK}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L5S1-JJPC/runbooks/L5S1_start_YJ1I.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "01",
+    "note": "",
+    "query": {
+     "city": "Vienna, Austria",
+     "date": "2020-12-30",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=vantage-L5S1-ZI0T",
+      "document=exports/L5S1_J3X_ledger.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:01"
+    },
+    "target": "video_L5S1_AQP",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L5S1-ZI0T/exports/L5S1_J3X_ledger.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "vantage-L5S1-ZI0T/language_pack/L5S1_XOO_review.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L6S1-0QIT": {
+  "final_token": "THB{bw0kT4vYlW5NXhB7kDqMNNAl}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L6S1-CEXB/language_pack/L6S1_de_E59I.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1933",
+    "note": "",
+    "query": {
+     "date": "2020-08-11",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L6S1-CEXB/language_pack/L6S1_ar_HTVA.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L6S1-CEXB/docs/L6S1_P25_log.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L6S1-GV0C": {
+  "final_token": "THB{GzcnrkQd39IArccLWAhfHHFI}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L6S1-8NZ5/language_pack/L6S1_de_QF6W.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1868",
+    "note": "",
+    "query": {
+     "date": "2021-05-18",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L6S1-8NZ5/language_pack/L6S1_ar_J799.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "quarry-L6S1-8NZ5/runbooks/L6S1_NLF_route.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L6S1-ZVHC": {
+  "final_token": "THB{nFIfr3c7FLrfFIFOgJAXjOqh}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L6S1-YANY/language_pack/L6S1_de_6CWD.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Yahoo Finance chart API, symbol GC=F (COMEX gold futures), daily close in USD",
+    "extracted": {},
+    "normalized_value": "1282",
+    "note": "",
+    "query": {
+     "date": "2019-03-05",
+     "symbol": "GC=F"
+    },
+    "target": "",
+    "tool": "api.Approved gold-price source (Yahoo Finance GC=F daily close, USD)"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L6S1-YANY/language_pack/L6S1_ar_LPTL.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L6S1-YANY/manifests/L6S1_E77_ref.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L7S1-30JH": {
+  "final_token": "THB{UP52aF5RaGD4WtQxs6yw7BcP}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L7S1-EG71/runbooks/L7S1_start_30JH.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "decoded": "LCUUH",
+     "raw": "QHZZM"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "playlist_L7S1_NME",
+    "tool": "youtube.playlist_titles"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "vantage-L7S1-LCUUH/packets/LCUUH_route.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "vantage-L7S1-LCUUH/packets/L7S1_Y4N_index.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L7S1-3FY8": {
+  "final_token": "THB{8kRQH1gZauj7KElOlGPcp0n8}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L7S1-WJ9J/runbooks/L7S1_start_3FY8.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "decoded": "WNAVI",
+     "raw": "BSFAN"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "playlist_L7S1_FJM",
+    "tool": "youtube.playlist_titles"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "morrow-L7S1-WNAVI/packets/WNAVI_route.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "morrow-L7S1-WNAVI/reports/L7S1_1SX_review.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L7S1-JK43": {
+  "final_token": "THB{fFSPUFwGGelXtDD65DE58GCD}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L7S1-9K89/runbooks/L7S1_start_JK43.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "decoded": "PEWDM",
+     "raw": "UJBIR"
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "playlist_L7S1_9AL",
+    "tool": "youtube.playlist_titles"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L7S1-PEWDM/packets/PEWDM_route.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "kestrel-L7S1-PEWDM/packets/L7S1_PH5_survey.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L8S1-9DW3": {
+  "final_token": "THB{h5ltN3v6FNEUSKW7Idi4FAuu}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "quarry-L8S1-URWU/runbooks/L8S1_start_9DW3.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "quarry-L8S1-URWU/runbooks/L8S1_VZW_bundle.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L8S1-EK14": {
+  "final_token": "THB{UHwx3Qh2wGOb2i8HiBTw6sNB}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L8S1-O0GA/runbooks/L8S1_start_EK14.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L8S1-O0GA/candidates/L8S1_91N_survey.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L8S1-XD6A": {
+  "final_token": "THB{5iYGIOg701cxHAAlL6Q9YMiC}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "halcyon-L8S1-SJ0Q/runbooks/L8S1_start_XD6A.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "halcyon-L8S1-SJ0Q/manifests/L8S1_JZU_ledger.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L8S2-7BQR": {
+  "final_token": "THB{avvH6ZlwMK1JRtb5SCJxBRhZ}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L8S2-17F5/runbooks/L8S2_start_7BQR.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "23",
+    "note": "",
+    "query": {
+     "city": "Dresden, Germany",
+     "date": "2013-03-13",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=atlaskeep-L8S2-0X64",
+      "document=ledgers/L8S2_02W_ledger.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:23"
+    },
+    "target": "video_L8S2_75N",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "atlaskeep-L8S2-0X64/ledgers/L8S2_02W_ledger.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "tables/L8S2_0VE_log.md"
+    },
+    "target": "atlaskeep-L8S2-0X64",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "atlaskeep-L8S2-0X64/packets/L8S2_9MU_index.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L8S2-M0MD": {
+  "final_token": "THB{9zcuLuB39JbCDa43pk1r02Z6}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L8S2-Q6BI/runbooks/L8S2_start_M0MD.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "10",
+    "note": "",
+    "query": {
+     "city": "Cologne, Germany",
+     "date": "2017-01-12",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=signalbay-L8S2-TQKZ",
+      "document=registry/L8S2_HS8_bundle.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:10"
+    },
+    "target": "video_L8S2_15G",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L8S2-TQKZ/registry/L8S2_HS8_bundle.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "registry/L8S2_P3T_ref.md"
+    },
+    "target": "signalbay-L8S2-TQKZ",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L8S2-TQKZ/docs/L8S2_7YE_index.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ },
+ "THB-TR-L8S2-STVN": {
+  "final_token": "THB{FmFGKTwlBHAS98K5qMaUT08K}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L8S2-K7QK/runbooks/L8S2_start_STVN.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "Open-Meteo Historical Weather API, https://open-meteo.com/en/docs/historical-weather-api",
+    "extracted": {},
+    "normalized_value": "23",
+    "note": "",
+    "query": {
+     "city": "Passau, Germany",
+     "date": "2016-01-21",
+     "timezone": "Europe/Berlin"
+    },
+    "target": "",
+    "tool": "api.Open-Meteo Historical Weather API"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=signalbay-L8S2-HMNR",
+      "document=candidates/L8S2_EE0_survey.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:23"
+    },
+    "target": "video_L8S2_JFV",
+    "tool": "youtube.inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "signalbay-L8S2-HMNR/candidates/L8S2_EE0_survey.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "before_message": "migration-complete",
+     "path": "packets/L8S2_Z1L_ref.md"
+    },
+    "target": "signalbay-L8S2-HMNR",
+    "tool": "github.git_history"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "signalbay-L8S2-HMNR/records/L8S2_II6_index.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L9S1-DT2X": {
+  "final_token": "THB{Jvdriz4tbcTaaLH8FHHmdu86}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L9S1-7ZYK/runbooks/L9S1_start_DT2X.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=kestrel-L9S1-RLII",
+      "document=bundles/L9S1_D90_route.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:27",
+     "validation": "run_ref=L9S1-DT2X"
+    },
+    "target": "video_L9S1_c2",
+    "tool": "youtube.verify_and_inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "kestrel-L9S1-RLII/bundles/L9S1_D90_route.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "kestrel-L9S1-RLII/records/L9S1_2WV_survey.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1003,
+  "world": "w3"
+ },
+ "THB-TR-L9S1-HZ9O": {
+  "final_token": "THB{eySdLfIU4EgpAiC0A1E7LnQT}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "thb-L9S1-ROM6/runbooks/L9S1_start_HZ9O.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=thb-L9S1-3ZNG",
+      "document=media/L9S1_Y37_bundle.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:27",
+     "validation": "run_ref=L9S1-HZ9O"
+    },
+    "target": "video_L9S1_c2",
+    "tool": "youtube.verify_and_inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "thb-L9S1-3ZNG/media/L9S1_Y37_bundle.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "thb-L9S1-3ZNG/registry/L9S1_BFC_bundle.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1002,
+  "world": "w2"
+ },
+ "THB-TR-L9S1-JQWV": {
+  "final_token": "THB{yIo8TMiLP5VkJ8bmUJTppsR3}",
+  "oracle_trace": [
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "RXcTT-L9S1-5RX1/runbooks/L9S1_start_JQWV.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {
+     "lines": [
+      "repository=RXcTT-L9S1-IBWW",
+      "document=manifests/L9S1_SZF_event.md"
+     ]
+    },
+    "normalized_value": "",
+    "note": "",
+    "query": {
+     "timestamp": "00:27",
+     "validation": "run_ref=L9S1-JQWV"
+    },
+    "target": "video_L9S1_c1",
+    "tool": "youtube.verify_and_inspect"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "",
+    "query": {},
+    "target": "RXcTT-L9S1-IBWW/manifests/L9S1_SZF_event.md",
+    "tool": "github.read_file"
+   },
+   {
+    "citation": "",
+    "extracted": {},
+    "normalized_value": "",
+    "note": "terminal artifact",
+    "query": {},
+    "target": "RXcTT-L9S1-IBWW/tables/L9S1_7GS_log.txt",
+    "tool": "github.read_file"
+   }
+  ],
+  "seed": 1001,
+  "world": "w1"
+ }
+}
