@@ -19,7 +19,7 @@ the next. Checkboxes are updated as commits land.
   banned-phrase lists exported for the leakage scanner. Tests: determinism,
   no banned names, uniqueness across steps.
 
-- [ ] **C04 — Core schemas + source cache.** `thb/core/schemas.py`
+- [x] **C04 — Core schemas + source cache.** `thb/core/schemas.py`
   (ClueNode, WorldArtifact, SkillDef, PublicManifest, PrivateManifest,
   CacheEntry, TraceEvent, Trace — all JSON-serializable),
   `thb/core/cache.py` (SourceCache: put/get, raw-response sha256, citation
