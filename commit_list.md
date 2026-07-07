@@ -14,7 +14,7 @@ the next. Checkboxes are updated as commits land.
   same seed → same values; different names → independent streams; token
   verify round-trip.
 
-- [ ] **C03 — Anti-leakage naming generator.** `thb/core/naming.py`: run-ids,
+- [x] **C03 — Anti-leakage naming generator.** `thb/core/naming.py`: run-ids,
   repo names, file paths derived from family/step/values; banned-name and
   banned-phrase lists exported for the leakage scanner. Tests: determinism,
   no banned names, uniqueness across steps.
