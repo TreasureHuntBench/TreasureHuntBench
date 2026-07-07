@@ -44,7 +44,7 @@ the next. Checkboxes are updated as commits land.
   serialize the three private graphs; skill cards; graph integrity checks
   (single path, no orphan clue nodes, skill dependencies resolvable). Tests.
 
-- [ ] **C08 — Instruction generator.** `thb/gen/instructions.py`: direct
+- [x] **C08 — Instruction generator.** `thb/gen/instructions.py`: direct
   operational instruction text from clue nodes, with verb/structure variation
   but full determinism per seed; renders EN/DE/AR via multilingual module.
   Tests: all required fields present, no banned boilerplate phrases.
