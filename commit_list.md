@@ -82,7 +82,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C16 — Family 5: YouTube Timestamp Clues** (introduces
   `timestamped_video_clue_extraction`). Same test contract.
 
-- [ ] **C17 — Family 6: Multilingual Clues** (DE/AR operational documents;
+- [x] **C17 — Family 6: Multilingual Clues** (DE/AR operational documents;
   introduces `cross_lingual_clue_following`). Same test contract.
 
 - [ ] **C18 — Family 7: Encoded Messages** (playlist acrostic + caesar etc.;
