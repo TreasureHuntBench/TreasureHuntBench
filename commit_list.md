@@ -116,7 +116,7 @@ the next. Checkboxes are updated as commits land.
   runner that reports per-level success. Tests: on generated worlds grep and
   search-only fail, oracle succeeds.
 
-- [ ] **C25 — CLI.** `thb` entrypoint: `generate`, `validate`, `publish`,
+- [x] **C25 — CLI.** `thb` entrypoint: `generate`, `validate`, `publish`,
   `solve`, `evaluate`, `baseline`. Tests: CLI smoke tests on a tiny world.
 
 - [ ] **C26 — End-to-end suite.** One test that generates a mini-world with

@@ -255,3 +255,56 @@ class LiveGitHubPublisher:
     def delete_repo(self, name: str) -> None:
         _run(["gh", "api", "-X", "DELETE",
               "repos/%s/%s" % (self.org, name)])
+
+
+def _decode_tree(tree: Dict[str, Any]) -> Dict[str, FileContent]:
+    out: Dict[str, FileContent] = {}
+    for path, content in tree.items():
+        if isinstance(content, dict) and "__b64__" in content:
+            out[path] = base64.b64decode(content["__b64__"])
+        else:
+            out[path] = content
+    return out
+
+
+def spec_from_mirror(repo_dir: str) -> RepoSpec:
+    """Reconstruct a RepoSpec from a local mirror (for live publishing)."""
+    with open(os.path.join(repo_dir, "repo.json"), encoding="utf-8") as fh:
+        meta = json.load(fh)
+    with open(os.path.join(repo_dir, "history.json"), encoding="utf-8") as fh:
+        history = json.load(fh)
+    with open(os.path.join(repo_dir, "issues.json"), encoding="utf-8") as fh:
+        issues = json.load(fh)
+    with open(os.path.join(repo_dir, "releases.json"),
+              encoding="utf-8") as fh:
+        releases = json.load(fh)
+    spec = RepoSpec(name=meta["name"], description=meta["description"],
+                    default_branch=meta["default_branch"],
+                    private=meta.get("private", False),
+                    issues=issues, releases=releases)
+
+    def diff(prev: Dict[str, FileContent], cur: Dict[str, FileContent]):
+        files = {p: c for p, c in cur.items()
+                 if p not in prev or prev[p] != c}
+        removed = [p for p in prev if p not in cur]
+        return files, removed
+
+    main = meta["default_branch"]
+    prev: Dict[str, FileContent] = {}
+    for entry in history[main]:
+        snap = _decode_tree(entry["files"])
+        files, removed = diff(prev, snap)
+        spec.add_commit(entry["message"], files, remove=removed)
+        prev = snap
+    main_final = prev
+    for branch, entries in history.items():
+        if branch == main:
+            continue
+        prev = dict(main_final)
+        for entry in entries:
+            snap = _decode_tree(entry["files"])
+            files, removed = diff(prev, snap)
+            spec.add_commit(entry["message"], files, branch=branch,
+                            remove=removed)
+            prev = snap
+    return spec
