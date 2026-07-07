@@ -68,6 +68,7 @@ def test_multilingual_all_templates_all_langs():
         "city": "Passau, Germany", "tz": "Europe/Berlin", "field": "run_ref",
         "value": "L9S3-2D8", "shift": 5, "msg": "migration-complete",
         "ref": "L8S1", "qid": "Q4190", "lang_name": "German", "n": 5,
+        "page": "Passau",
     }
     for key, translations in STEP_TEMPLATES.items():
         for lang in LANGS:

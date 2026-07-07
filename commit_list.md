@@ -69,7 +69,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C12 — Family 1: Basic Clue Following.** Generator + oracle route +
   tests (oracle recovers token; validators pass; grep baseline fails).
 
-- [ ] **C13 — Family 2: Real-Website Navigation** (wiki-based intermediate
+- [x] **C13 — Family 2: Real-Website Navigation** (wiki-based intermediate
   values, introduces `get_gold_price` skill card). Same test contract.
 
 - [ ] **C14 — Family 3: API-Based Historical Data** (Open-Meteo coldest hour →

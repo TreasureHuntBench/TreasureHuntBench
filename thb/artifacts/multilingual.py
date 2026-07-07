@@ -117,6 +117,11 @@ STEP_TEMPLATES: Dict[str, Dict[str, str]] = {
         "de": "Verwende die in {ref} eingeführten Begriffszuordnungen.",
         "ar": "استخدم تعيينات المصطلحات التي قُدّمت في {ref}.",
     },
+    "wiki_item_var": {
+        "en": "Look up the English Wikipedia page titled {page} and read its Wikidata item id from the page metadata. Call that id {var}.",
+        "de": "Schlage die englische Wikipedia-Seite mit dem Titel {page} nach und lies die Wikidata-Item-ID aus den Seitenmetadaten. Nenne diese ID {var}.",
+        "ar": "ابحث عن صفحة ويكيبيديا الإنجليزية المعنونة {page} واقرأ معرّف عنصر ويكي بيانات من بيانات الصفحة الوصفية. سمِّ هذا المعرّف {var}.",
+    },
     "wikidata_label_var": {
         "en": "Look up the Wikidata entity {qid} and read its {lang_name} label. Call that label {var}.",
         "de": "Schlage die Wikidata-Entität {qid} nach und lies ihr Label auf {lang_name}. Nenne dieses Label {var}.",
