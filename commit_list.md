@@ -33,7 +33,7 @@ the next. Checkboxes are updated as commits land.
   `get_coldest_hour`, `get_gold_price`, `get_series_observation`. Tests run
   offline against bundled data.
 
-- [ ] **C06 — File/database/archive/encoding artifact generators.**
+- [x] **C06 — File/database/archive/encoding artifact generators.**
   `thb/artifacts/`: realistic markdown/json/csv writers, SQLite generator,
   ZIP (incl. password) generator, encoding codecs (base64, hex, caesar,
   vigenère, morse, acrostic), multilingual (EN/DE/AR) instruction renderer.

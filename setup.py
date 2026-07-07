@@ -15,6 +15,7 @@ setup(
         "requests>=2.25",
         "PyYAML>=5.4",
         "Pillow>=8.0",
+        "pyzipper>=0.3",
     ],
     extras_require={"dev": ["pytest>=6.0"]},
     entry_points={"console_scripts": ["thb=thb.cli:main"]},
