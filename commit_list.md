@@ -119,7 +119,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C25 — CLI.** `thb` entrypoint: `generate`, `validate`, `publish`,
   `solve`, `evaluate`, `baseline`. Tests: CLI smoke tests on a tiny world.
 
-- [ ] **C26 — End-to-end suite.** One test that generates a mini-world with
+- [x] **C26 — End-to-end suite.** One test that generates a mini-world with
   every family, validates all levels, solves with oracle, evaluates traces,
   runs baselines, and checks the QC checklist programmatically.
 
