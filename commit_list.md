@@ -106,7 +106,7 @@ the next. Checkboxes are updated as commits land.
   exposure), one-answer validator (unique candidate/path/token, tie-break
   audit). Tests incl. deliberately broken levels being rejected.
 
-- [ ] **C23 — Evaluator.** `thb/eval/`: trace schema/auditor and all scorers
+- [x] **C23 — Evaluator.** `thb/eval/`: trace schema/auditor and all scorers
   (final token, partial progress, skill reuse, memory, source accuracy,
   citation, robustness, efficiency, trace plausibility); JSON score report.
   Tests: oracle trace scores ~perfect; corrupted traces lose the right
