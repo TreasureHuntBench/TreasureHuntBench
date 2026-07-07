@@ -112,7 +112,7 @@ the next. Checkboxes are updated as commits land.
   Tests: oracle trace scores ~perfect; corrupted traces lose the right
   points.
 
-- [ ] **C24 — Baselines.** grep baseline, search-only baseline, oracle agent;
+- [x] **C24 — Baselines.** grep baseline, search-only baseline, oracle agent;
   runner that reports per-level success. Tests: on generated worlds grep and
   search-only fail, oracle succeeds.
 

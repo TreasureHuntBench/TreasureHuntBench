@@ -123,6 +123,22 @@ class LevelBuilder:
                  allowed_tools: List[str], approved_sources: List[str],
                  step_budget: int = 200,
                  notes: Optional[Dict[str, Any]] = None) -> LevelResult:
+        # token-noise: a fake token-shaped string in the start repo makes a
+        # blind THB{...} regex sweep ambiguous by construction
+        from ..gen.decoys import fake_token
+        noise_path = "packets/%s_%s_sample.txt" % (
+            self.level_tag, self.rng.code("noise", 3))
+        noise = fake_token(self.rng, "world_noise", self.token)
+        if self.repos:
+            self.repos[0].add_commit("add sample packet",
+                                     {noise_path: noise + "\n"})
+            self.world.add(
+                "file",
+                {"repo": self.repos[0].name, "path": noise_path},
+                decoy_status="decoy",
+                invalid_rule="token-shaped string never referenced by any "
+                             "instruction on the intended path")
+
         problems = self.chain.check() + self.world.check()
         if problems:
             raise ValueError("level integrity problems: %s" % problems)

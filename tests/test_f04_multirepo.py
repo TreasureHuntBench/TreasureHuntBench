@@ -33,7 +33,7 @@ def test_family4_generation(tmp_path):
 
     # decoys recorded with explicit rules
     decoys = [a for a in result.private_manifest.artifacts()
-              if a.decoy_status == "decoy"]
+              if a.decoy_status == "decoy" and a.kind == "repo"]
     assert len(decoys) == f04_multirepo.N_CANDIDATES - 1
 
     # the selected repo routes to the terminal token
