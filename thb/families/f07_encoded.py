@@ -1,17 +1,17 @@
-"""Level Family 7: Encoded and Hidden Message Extraction.
+"""Level Family 7: Encoded and Hidden Message Extraction (video-free).
 
 Introduces ``decode_explicit_hidden_messages``: the first characters of the
-last five playlist titles, decoded with a stated Caesar shift, yield the tag
-that names the next repository and its route document.
+last five entry titles of an in-repo upload log, decoded with a stated
+Caesar shift, yield the tag that names the next repository and its route
+document.
 """
 
-import json
 import string
 from typing import Any, Dict, Optional
 
+from ..artifacts.captures import build_upload_log
 from ..artifacts.encodings import caesar_decode, caesar_encode
 from ..gen.instructions import build_instruction_markdown
-from ..gen.youtube_pub import PlaylistSpec, video_reference_file
 from ..graphs.skills import SkillGraph, skill_card_markdown
 from .registry import LevelBuilder, LevelResult
 
@@ -34,22 +34,18 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     start_repo = b.forge.repo_name(label="start")
     tagged_repo = "%s-%s-%s" % (b.forge.repo_stem(), b.level_tag, tag)
     start_path = b.forge.start_path()
-    playlist_ref = "playlist_%s_%s" % (b.level_tag, b.rng.code("pl", 3))
-    playlist_ref_path = "media/%s_playlist_%s.json" % (
-        b.level_tag, b.rng.code("plref", 3))
+    log_path = "media/%s_uploads_%s.json" % (b.level_tag,
+                                             b.rng.code("plref", 3))
     route_path = "packets/%s_route.md" % tag
     terminal_path = b.forge.file_path("terminal", ext="txt")
 
-    # playlist: two filler videos then five whose first chars spell `encoded`
+    # upload log: two filler entries then five whose first chars spell
+    # `encoded`
     fillers = b.rng.sample("fillers", _FILLERS, 7)
     titles = [fillers[0].capitalize(), fillers[1].capitalize()]
     for ch, filler in zip(encoded, fillers[2:]):
         titles.append(ch + filler)
-    refs = ["video_%s_pl%02d" % (b.level_tag, i) for i in range(len(titles))]
-    b.youtube.build_playlist(PlaylistSpec(
-        ref=playlist_ref,
-        title="%s upload series" % b.level_tag,
-        video_refs=refs, video_titles=titles))
+    upload_log = build_upload_log(titles)
 
     b.skills.introduce("decode_explicit_hidden_messages", b.level_tag,
                        card_path=start_path)
@@ -61,7 +57,7 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
 
     start_doc = build_instruction_markdown(
         b.rng, "start", b.level_tag,
-        [("list_last_titles", {"path": playlist_ref_path, "n": 5}),
+        [("list_last_titles", {"path": log_path, "n": 5}),
          ("first_chars_var", {"var": "RAW_TAG"}),
          ("decode_caesar_var", {"value": "RAW_TAG", "shift": SHIFT,
                                 "var": "ROUTE_TAG"}),
@@ -77,12 +73,8 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
         front_matter={"run_id": b.run_id})
 
     repo1 = b.new_repo(start_repo, "upload processing bundle")
-    repo1.add_commit("import upload bundle", {
-        start_path: start_doc,
-        playlist_ref_path: json.dumps(
-            {"playlist_ref": playlist_ref, "platform": "youtube",
-             "channel": "@TreasureHuntBench", "url": ""},
-            indent=2) + "\n"})
+    repo1.add_commit("import upload bundle",
+                     {start_path: start_doc, log_path: upload_log})
     repo2 = b.new_repo(tagged_repo, "routed packet archive")
     repo2.add_commit("archive routed packets",
                      {route_path: route_doc,
@@ -91,16 +83,16 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     for repo in (start_repo, tagged_repo):
         b.world.add("repo", {"repo": repo})
     b.world.add("file", {"repo": start_repo, "path": start_path})
-    b.world.add("playlist", {"playlist_ref": playlist_ref})
+    b.world.add("file", {"repo": start_repo, "path": log_path})
     b.world.add("file", {"repo": tagged_repo, "path": route_path})
     b.world.add("file", {"repo": tagged_repo, "path": terminal_path})
 
     b.chain.add("github_file", {"repo": start_repo, "path": start_path},
-                "github", playlist_ref_path)
-    b.chain.add("playlist_titles",
-                {"playlist_ref": playlist_ref, "last_n": 5,
+                "github", log_path)
+    b.chain.add("titles_list",
+                {"repo": start_repo, "path": log_path, "last_n": 5,
                  "method": "caesar", "shift": SHIFT},
-                "youtube", tag,
+                "file", tag,
                 normalization="first characters of last 5 titles, Caesar "
                               "shift %d" % SHIFT,
                 skill_ids=["decode_explicit_hidden_messages"])
@@ -110,7 +102,6 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 "github", b.token)
 
     return b.finalize(start_repo, start_path,
-                      allowed_tools=["github", "youtube", "python", "file"],
-                      approved_sources=["TreasureHuntBench GitHub",
-                                        "TreasureHuntBench YouTube"],
+                      allowed_tools=["github", "python", "file"],
+                      approved_sources=["TreasureHuntBench GitHub"],
                       step_budget=100)

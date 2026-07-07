@@ -1,16 +1,16 @@
-"""Level Family 5: YouTube Timestamp and Metadata Clues.
+"""Level Family 5: Timestamped Capture Clues (video-free profile).
 
 Reuses ``get_coldest_hour`` and introduces
-``timestamped_video_clue_extraction``: the coldest hour becomes a video
-timestamp (``00:HH`` = HH seconds); the frame/caption at that timestamp
-displays the next repository and document as structured fields.
+``timestamped_video_clue_extraction`` on in-repo capture artifacts: the
+coldest hour becomes a timestamp (``00:HH`` = HH seconds); the WebVTT cue
+covering that second carries the next repository and document as structured
+fields.
 """
 
-import json
 from typing import Any, Dict, Optional
 
+from ..artifacts.captures import build_capture_vtt
 from ..gen.instructions import build_instruction_markdown
-from ..gen.youtube_pub import Segment, VideoSpec, video_reference_file
 from ..graphs.skills import SkillGraph, skill_card_markdown
 from ..sources.open_meteo import OpenMeteoSource
 from .f03_api import bundled_weather_pairs
@@ -35,23 +35,18 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     start_repo = b.forge.repo_name(label="start")
     routed_repo = b.forge.repo_name(label="routed")
     start_path = b.forge.start_path()
-    video_ref_path = "media/%s_video_ref_%s.json" % (
-        b.level_tag, b.rng.code("vref", 3))
+    capture_path = "media/%s_readout_%s.vtt" % (
+        b.level_tag, b.rng.code("cap", 3))
     routed_path = b.forge.file_path("routed")
     terminal_path = b.forge.file_path("terminal", ext="txt")
-    video_ref = "video_%s_%s" % (b.level_tag, b.rng.code("vid", 3))
 
     clue_lines = ["repository=%s" % routed_repo,
                   "document=%s" % routed_path]
-    segments = [Segment(0, t, ["series calibration"])] if t > 0 else []
-    segments.append(Segment(t, t + 1, clue_lines))
-    segments.append(Segment(t + 1, t + 8, ["archive readout complete"]))
-    video = VideoSpec(
-        ref=video_ref,
-        title="%s series readout %s" % (b.level_tag, b.rng.code("vt", 3)),
-        description="run_ref=%s\narchived measurement readout" % b.run_id,
-        segments=segments)
-    b.youtube.build_video(video)
+    segments = ([(0, t, ["series calibration"])] if t > 0 else [])
+    segments.append((t, t + 1, clue_lines))
+    segments.append((t + 1, t + 8, ["archive readout complete"]))
+    capture = build_capture_vtt({"run_ref": b.run_id,
+                                 "kind": "series readout"}, segments)
 
     if "get_coldest_hour" not in b.skills.skills:
         b.skills.introduce("get_coldest_hour", b.level_tag)
@@ -61,15 +56,15 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                        card_path=start_path)
     card = skill_card_markdown(
         "timestamped_video_clue_extraction",
-        inputs="video reference file, derived two-digit value as 00:VALUE",
-        normalization="read the structured key=value fields shown at the "
-                      "timestamp")
+        inputs="capture file (WebVTT), derived two-digit value as 00:VALUE",
+        normalization="read the structured key=value fields in the cue "
+                      "covering the timestamp")
 
     start_doc = build_instruction_markdown(
         b.rng, "start", b.level_tag,
         [("coldest_hour_var", {"city": city, "date": date, "tz": tz,
                                "var": "HOUR_24"}),
-         ("open_video_ref", {"path": video_ref_path}),
+         ("read_file", {"path": capture_path}),
          ("inspect_timestamp", {"var": "{HOUR_24}"})],
         front_matter={"run_id": b.run_id},
         extra_sections=[{"heading": "Procedure card", "body": card}])
@@ -79,10 +74,8 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
         front_matter={"run_id": b.run_id})
 
     repo1 = b.new_repo(start_repo, "measurement readout bundle")
-    repo1.add_commit("import readout bundle", {
-        start_path: start_doc,
-        video_ref_path: json.dumps(video_reference_file(video_ref),
-                                   indent=2) + "\n"})
+    repo1.add_commit("import readout bundle",
+                     {start_path: start_doc, capture_path: capture})
     repo2 = b.new_repo(routed_repo, "archived readout outputs")
     repo2.add_commit("archive readout outputs",
                      {routed_path: routed_doc,
@@ -91,13 +84,12 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     for repo in (start_repo, routed_repo):
         b.world.add("repo", {"repo": repo})
     b.world.add("file", {"repo": start_repo, "path": start_path})
-    b.world.add("file", {"repo": start_repo, "path": video_ref_path})
-    b.world.add("video", {"video_ref": video_ref},
+    b.world.add("file", {"repo": start_repo, "path": capture_path},
                 source_dependencies=[weather_cache])
     b.world.add("file", {"repo": routed_repo, "path": terminal_path})
 
     b.chain.add("github_file", {"repo": start_repo, "path": start_path},
-                "github", video_ref_path)
+                "github", capture_path)
     b.chain.add("api_value",
                 {"source": OpenMeteoSource.name,
                  "query": {"city": city, "date": date, "timezone": tz},
@@ -106,9 +98,10 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 normalization="coldest_hour_two_digit",
                 source_cache_id=weather_cache,
                 skill_ids=["get_coldest_hour"])
-    b.chain.add("youtube_timestamp",
-                {"video_ref": video_ref, "timestamp": timestamp},
-                "youtube", "\n".join(clue_lines),
+    b.chain.add("vtt_timestamp",
+                {"repo": start_repo, "path": capture_path,
+                 "timestamp": timestamp},
+                "file", "\n".join(clue_lines),
                 skill_ids=["timestamped_video_clue_extraction"])
     b.chain.add("github_file", {"repo": routed_repo, "path": routed_path},
                 "github", terminal_path)
@@ -116,9 +109,7 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 "github", b.token)
 
     return b.finalize(start_repo, start_path,
-                      allowed_tools=["github", "youtube", "external_api",
-                                     "file"],
+                      allowed_tools=["github", "external_api", "file"],
                       approved_sources=["TreasureHuntBench GitHub",
-                                        "TreasureHuntBench YouTube",
                                         OpenMeteoSource.name],
                       step_budget=100)

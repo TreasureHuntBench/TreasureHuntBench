@@ -106,6 +106,67 @@ class OracleSolver:
             citation=entry.citation))
         return entry.normalized_value
 
+    def _vtt_timestamp(self, node: ClueNode, events) -> str:
+        from ..artifacts.captures import cue_lines_at
+        text = self._read(node)
+        lines = cue_lines_at(text, node.location["timestamp"])
+        joined = "\n".join(lines)
+        if joined != node.observation:
+            raise OracleError("capture cue mismatch at %s" % node.node_id)
+        events.append(TraceEvent(
+            tool="file.capture_inspect",
+            target="%s/%s" % (node.location["repo"], node.location["path"]),
+            query={"timestamp": node.location["timestamp"]},
+            extracted={"lines": lines}))
+        return joined
+
+    def _vtt_candidates(self, node: ClueNode, events) -> str:
+        from ..artifacts.captures import cue_lines_at, parse_note_fields
+        loc = node.location
+        listing = json.loads(self.github.read_file(
+            loc["list_repo"], loc["list_path"]))
+        valid = []
+        for path in listing["capture_paths"]:
+            text = self.github.read_file(loc["list_repo"], path)
+            fields = parse_note_fields(text)
+            if fields.get(loc["check_field"]) == loc["check_value"]:
+                valid.append(path)
+        if valid != [loc["expected_path"]]:
+            raise OracleError("capture filtering not unique at %s: %r"
+                              % (node.node_id, valid))
+        text = self.github.read_file(loc["list_repo"], valid[0])
+        lines = cue_lines_at(text, loc["timestamp"])
+        joined = "\n".join(lines)
+        if joined != node.observation:
+            raise OracleError("valid-capture cue mismatch at %s"
+                              % node.node_id)
+        events.append(TraceEvent(
+            tool="file.capture_verify_and_inspect",
+            target="%s/%s" % (loc["list_repo"], valid[0]),
+            query={"timestamp": loc["timestamp"],
+                   "validation": "%s=%s" % (loc["check_field"],
+                                            loc["check_value"])},
+            extracted={"lines": lines}))
+        return joined
+
+    def _titles_list(self, node: ClueNode, events) -> str:
+        from ..artifacts.captures import parse_upload_log_titles
+        loc = node.location
+        titles = parse_upload_log_titles(
+            self.github.read_file(loc["repo"], loc["path"]))
+        last = titles[-loc["last_n"]:]
+        raw = acrostic_decode(last)
+        if loc["method"] != "caesar":
+            raise OracleError("unsupported decode method at %s" % node.node_id)
+        decoded = caesar_decode(raw, loc["shift"])
+        if decoded != node.observation:
+            raise OracleError("decoded tag mismatch at %s" % node.node_id)
+        events.append(TraceEvent(
+            tool="file.upload_log_titles",
+            target="%s/%s" % (loc["repo"], loc["path"]),
+            extracted={"raw": raw, "decoded": decoded}))
+        return decoded
+
     def _youtube_timestamp(self, node: ClueNode, events) -> str:
         lines = self.youtube.text_at(node.location["video_ref"],
                                      node.location["timestamp"])

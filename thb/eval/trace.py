@@ -22,6 +22,14 @@ def _covers(node: ClueNode, event: Dict[str, Any]) -> bool:
                          for k, v in loc.get("query", {}).items())
         return (tool.startswith("api") and
                 (value == node.observation or same_query))
+    if node.artifact_type in ("vtt_timestamp", "vtt_candidates"):
+        path = loc.get("path") or loc.get("expected_path", "")
+        return (tool.startswith(("file", "github"))
+                and path in target
+                and query.get("timestamp") == loc.get("timestamp"))
+    if node.artifact_type == "titles_list":
+        return (tool.startswith(("file", "github"))
+                and loc.get("path", "") in target)
     if node.artifact_type in ("youtube_timestamp", "youtube_candidates"):
         ref = loc.get("video_ref") or loc.get("expected_ref", "")
         return (tool.startswith("youtube") and ref in target

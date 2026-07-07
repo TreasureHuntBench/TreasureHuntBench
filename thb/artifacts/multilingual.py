@@ -58,14 +58,14 @@ STEP_TEMPLATES: Dict[str, Dict[str, str]] = {
                "الأبكر. سمِّ الساعة المكوّنة من رقمين {var}."),
     },
     "open_video_ref": {
-        "en": "Open the video referenced in {path}.",
-        "de": "Öffne das Video, auf das in {path} verwiesen wird.",
-        "ar": "افتح الفيديو المُشار إليه في {path}.",
+        "en": "Open the capture file referenced in {path}.",
+        "de": "Öffne die Aufzeichnungsdatei, auf die in {path} verwiesen wird.",
+        "ar": "افتح ملف التسجيل المُشار إليه في {path}.",
     },
     "inspect_timestamp": {
-        "en": "Inspect the video at timestamp 00:{var} and read the displayed fields.",
-        "de": "Untersuche das Video beim Zeitstempel 00:{var} und lies die angezeigten Felder.",
-        "ar": "افحص الفيديو عند الطابع الزمني 00:{var} واقرأ الحقول المعروضة.",
+        "en": "Inspect the capture at timestamp 00:{var}: read the fields in the cue that covers that second.",
+        "de": "Untersuche die Aufzeichnung beim Zeitstempel 00:{var}: lies die Felder des Cues, der diese Sekunde abdeckt.",
+        "ar": "افحص التسجيل عند الطابع الزمني 00:{var}: اقرأ الحقول في المقطع الذي يغطي تلك الثانية.",
     },
     "translate_and_execute": {
         "en": "Translate this document and execute the translated instruction exactly, keeping every value, date, path, and identifier unchanged.",
@@ -153,9 +153,9 @@ STEP_TEMPLATES: Dict[str, Dict[str, str]] = {
         "ar": "ابحث عن كيان ويكي بيانات {qid} واقرأ تسميته باللغة {lang_name}. سمِّ تلك التسمية {var}.",
     },
     "list_last_titles": {
-        "en": "Open the playlist referenced in {path} and read the titles of the last {n} videos, in playlist order.",
-        "de": "Öffne die in {path} referenzierte Playlist und lies die Titel der letzten {n} Videos in Playlist-Reihenfolge.",
-        "ar": "افتح قائمة التشغيل المُشار إليها في {path} واقرأ عناوين آخر {n} مقاطع فيديو حسب ترتيب القائمة.",
+        "en": "Open the upload log {path} and read the titles of the last {n} entries, in listed order.",
+        "de": "Öffne das Upload-Protokoll {path} und lies die Titel der letzten {n} Einträge in der angegebenen Reihenfolge.",
+        "ar": "افتح سجل الرفع {path} واقرأ عناوين آخر {n} إدخالات حسب الترتيب المذكور.",
     },
 }
 

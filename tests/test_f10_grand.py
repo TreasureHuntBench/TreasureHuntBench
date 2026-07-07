@@ -9,8 +9,8 @@ import pytest
 from thb.artifacts.archive import read_zip_entry
 from thb.artifacts.encodings import caesar_decode
 from thb.families import f08_memory, f10_grand
+from thb.artifacts.captures import cue_lines_at
 from thb.gen.github_pub import LocalMirrorPublisher
-from thb.gen.youtube_pub import YouTubeMirror
 from thb.graphs.skills import SkillGraph
 
 from families_common import assert_family_contract, grep_baseline_fails
@@ -33,15 +33,14 @@ def test_family10_full_chain(tmp_path):
     grep_baseline_fails(result, out)
 
     github = LocalMirrorPublisher(out)
-    mirror = YouTubeMirror(out)
-    nodes = {n.node_id: n for n in result.private_manifest.clue_nodes()}
     chain = result.private_manifest.clue_nodes()
 
-    # video shows the market routing fields at the weather-derived second
-    video_node = next(n for n in chain
-                      if n.artifact_type == "youtube_timestamp")
-    lines = mirror.text_at(video_node.location["video_ref"],
-                           video_node.location["timestamp"])
+    # the capture shows the market routing fields at the derived second
+    cap_node = next(n for n in chain
+                    if n.artifact_type == "vtt_timestamp")
+    vtt = github.read_file(cap_node.location["repo"],
+                           cap_node.location["path"])
+    lines = cue_lines_at(vtt, cap_node.location["timestamp"])
     assert "series_id=GC=F" in lines
     assert any(l.startswith("observation_date=") for l in lines)
 

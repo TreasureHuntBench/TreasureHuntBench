@@ -21,8 +21,9 @@ SKILL_LIBRARY: Dict[str, str] = {
         "and select the single candidate whose metadata satisfies the stated "
         "task-specific condition.",
     "timestamped_video_clue_extraction":
-        "Derive a timestamp from a verified source value, inspect a video at "
-        "that timestamp, and extract the structured fields it displays.",
+        "Derive a timestamp from a verified source value, inspect a timed "
+        "capture artifact at that timestamp, and extract the structured "
+        "fields its cue displays.",
     "cross_lingual_clue_following":
         "Translate a direct operational instruction and execute it exactly, "
         "preserving every value, date, path, and identifier verbatim.",

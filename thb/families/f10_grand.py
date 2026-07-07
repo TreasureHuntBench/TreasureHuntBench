@@ -18,9 +18,9 @@ from typing import Any, Dict, Optional
 from ..artifacts.archive import write_zip
 from ..artifacts.encodings import caesar_encode
 from ..artifacts.files import csv_text
+from ..artifacts.captures import build_capture_vtt
 from ..gen.decoys import decoy_state_fields, near_duplicate_keys
 from ..gen.instructions import build_instruction_markdown
-from ..gen.youtube_pub import Segment, VideoSpec, video_reference_file
 from ..graphs.skills import SkillGraph
 from ..sources.gold import GoldPriceSource, bundled_gold_dates
 from ..sources.open_meteo import OpenMeteoSource
@@ -83,9 +83,8 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
         b.level_tag, b.run_id.split("-")[1])
     event_path = "records/%s_event_%s.md" % (
         b.level_tag, b.rng.code("event", 3))
-    mirror_ref_path = "media/%s_mirror_%s.json" % (
+    capture_path = "media/%s_capture_%s.vtt" % (
         b.level_tag, b.rng.code("mref", 3))
-    video_ref = "video_%s_%s" % (b.level_tag, b.rng.code("vid", 3))
     de_path = "language_pack/%s_de_%s.md" % (b.level_tag,
                                              b.rng.code("de", 4))
     hist_path = b.forge.file_path("ledger")
@@ -100,18 +99,15 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     ar_arcname = "briefs/%s_%s_ar.md" % (b.level_tag, b.run_id.split("-")[1])
     terminal_path = b.forge.file_path("terminal", ext="txt")
 
-    # ---- video: market fields at the weather-derived second ---------------
+    # ---- capture: market fields at the weather-derived second --------------
     clue_lines = ["series_id=GC=F",
                   "observation_date=%s" % gold_date,
                   "rounding_rule=round_nearest_integer"]
-    segments = [Segment(0, t, ["ledger calibration"])] if t > 0 else []
-    segments.append(Segment(t, t + 1, clue_lines))
-    segments.append(Segment(t + 1, t + 8, ["ledger readout complete"]))
-    b.youtube.build_video(VideoSpec(
-        ref=video_ref,
-        title="%s ledger capture %s" % (b.level_tag, b.rng.code("vt", 3)),
-        description="run_ref=%s\narchived ledger capture" % b.run_id,
-        segments=segments))
+    segments = ([(0, t, ["ledger calibration"])] if t > 0 else [])
+    segments.append((t, t + 1, clue_lines))
+    segments.append((t + 1, t + 8, ["ledger readout complete"]))
+    capture = build_capture_vtt({"run_ref": b.run_id,
+                                 "kind": "ledger capture"}, segments)
 
     # ---- documents ---------------------------------------------------------
     start_doc = build_instruction_markdown(
@@ -125,7 +121,7 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                                  "city": city, "date": date, "tz": tz,
                                  "var": "HOUR_24"}),
          ("mapped_open_video", {"term": terms["video"],
-                                "path": mirror_ref_path}),
+                                "path": capture_path}),
          ("mapped_inspect_video", {"term": terms["video"],
                                    "var": "{HOUR_24}"}),
          ("round_nearest_var", {"var": "MARKET_KEY"}),
@@ -179,10 +175,9 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
     repo1.add_commit("import ledger bundle", {
         start_path: start_doc,
         event_path: event_doc,
-        mirror_ref_path: json.dumps(video_reference_file(video_ref),
-                                    indent=2) + "\n"})
+        capture_path: capture})
     b.world.add("repo", {"repo": start_repo})
-    b.world.add("video", {"video_ref": video_ref},
+    b.world.add("file", {"repo": start_repo, "path": capture_path},
                 source_dependencies=[weather_cache])
 
     for code in codes:
@@ -227,7 +222,7 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 "github", event_path,
                 skill_ids=["persistent_skill_memory"])
     b.chain.add("github_file", {"repo": start_repo, "path": event_path},
-                "github", mirror_ref_path)
+                "github", capture_path)
     b.chain.add("api_value",
                 {"source": OpenMeteoSource.name,
                  "query": {"city": city, "date": date, "timezone": tz},
@@ -236,9 +231,10 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 normalization="coldest_hour_two_digit",
                 source_cache_id=weather_cache,
                 skill_ids=["get_coldest_hour"])
-    b.chain.add("youtube_timestamp",
-                {"video_ref": video_ref, "timestamp": "00:%s" % hour},
-                "youtube", "\n".join(clue_lines),
+    b.chain.add("vtt_timestamp",
+                {"repo": start_repo, "path": capture_path,
+                 "timestamp": "00:%s" % hour},
+                "file", "\n".join(clue_lines),
                 skill_ids=["timestamped_video_clue_extraction"])
     b.chain.add("api_value",
                 {"source": GoldPriceSource.name,
@@ -281,11 +277,10 @@ def generate(seed: int, split: str, out_root: str, world_id: str,
                 "github", b.token)
 
     return b.finalize(start_repo, start_path,
-                      allowed_tools=["github", "youtube", "external_api",
+                      allowed_tools=["github", "external_api",
                                      "python", "archive", "translation",
                                      "memory", "file"],
                       approved_sources=["TreasureHuntBench GitHub",
-                                        "TreasureHuntBench YouTube",
                                         OpenMeteoSource.name,
                                         GoldPriceSource.name],
                       step_budget=400,

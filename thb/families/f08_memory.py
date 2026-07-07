@@ -2,7 +2,7 @@
 
 Sub-level 1 introduces a task-specific term vocabulary (rotated per world)
 and instructs the agent to store it. Sub-level 2 uses only the mapped terms:
-the weather term drives a video timestamp, the video routes to a repository
+the weather term drives a capture timestamp, the capture routes to a repository
 whose document requires a git-history lookup below a named commit message.
 
 The vocabulary travels between sub-levels through the world memory dict
@@ -11,10 +11,8 @@ The vocabulary travels between sub-levels through the world memory dict
 
 from typing import Any, Dict, Optional
 
-import json
-
+from ..artifacts.captures import build_capture_vtt
 from ..gen.instructions import build_instruction_markdown
-from ..gen.youtube_pub import Segment, VideoSpec, video_reference_file
 from ..graphs.skills import SkillGraph, skill_card_markdown
 from ..sources.open_meteo import OpenMeteoSource
 from .f03_api import bundled_weather_pairs
@@ -30,7 +28,7 @@ _TERM_POOLS = {
 
 _MEANINGS = {
     "weather_source": "approved historical-weather source",
-    "video": "video artifact under the official channel",
+    "video": "timed capture artifact (WebVTT readout)",
     "git_history": "commit history of the current repository",
     "documentation": "documentation artifact",
     "market_source": "approved financial or gold-price source",
@@ -112,23 +110,19 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
     start_repo = b.forge.repo_name(label="start")
     target_repo = b.forge.repo_name(label="target")
     start_path = b.forge.start_path()
-    video_ref = "video_%s_%s" % (b.level_tag, b.rng.code("vid", 3))
-    video_ref_path = "media/%s_video_ref_%s.json" % (
-        b.level_tag, b.rng.code("vref", 3))
+    capture_path = "media/%s_readout_%s.vtt" % (
+        b.level_tag, b.rng.code("cap", 3))
     routed_path = b.forge.file_path("routed")
     history_path = b.forge.file_path("ledger")
     terminal_path = b.forge.file_path("terminal", ext="txt")
 
     clue_lines = ["repository=%s" % target_repo,
                   "document=%s" % routed_path]
-    segments = [Segment(0, t, ["series calibration"])] if t > 0 else []
-    segments.append(Segment(t, t + 1, clue_lines))
-    segments.append(Segment(t + 1, t + 8, ["archive readout complete"]))
-    b.youtube.build_video(VideoSpec(
-        ref=video_ref,
-        title="%s ledger readout %s" % (b.level_tag, b.rng.code("vt", 3)),
-        description="run_ref=%s\narchived ledger readout" % b.run_id,
-        segments=segments))
+    segments = ([(0, t, ["series calibration"])] if t > 0 else [])
+    segments.append((t, t + 1, clue_lines))
+    segments.append((t + 1, t + 8, ["archive readout complete"]))
+    capture = build_capture_vtt({"run_ref": b.run_id,
+                                 "kind": "ledger readout"}, segments)
 
     b.skills.require("persistent_skill_memory", b.level_tag)
     b.skills.introduce("git_history_investigation", b.level_tag,
@@ -146,7 +140,7 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
                                  "city": city, "date": date, "tz": tz,
                                  "var": "HOUR_24"}),
          ("mapped_open_video", {"term": terms["video"],
-                                "path": video_ref_path}),
+                                "path": capture_path}),
          ("mapped_inspect_video", {"term": terms["video"],
                                    "var": "{HOUR_24}"})],
         front_matter={"run_id": b.run_id})
@@ -168,10 +162,8 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
         front_matter={"run_id": b.run_id})
 
     repo1 = b.new_repo(start_repo, "ledger readout bundle")
-    repo1.add_commit("import readout bundle", {
-        start_path: start_doc,
-        video_ref_path: json.dumps(video_reference_file(video_ref),
-                                   indent=2) + "\n"})
+    repo1.add_commit("import readout bundle",
+                     {start_path: start_doc, capture_path: capture})
 
     repo2 = b.new_repo(target_repo, "ledger archive")
     repo2.add_commit("field records import",
@@ -191,14 +183,14 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
         b.world.add("repo", {"repo": repo})
     b.world.add("file", {"repo": start_repo, "path": start_path},
                 skill_dependencies=["persistent_skill_memory"])
-    b.world.add("video", {"video_ref": video_ref},
+    b.world.add("file", {"repo": start_repo, "path": capture_path},
                 source_dependencies=[weather_cache])
     b.world.add("file", {"repo": target_repo, "path": routed_path},
                 skill_dependencies=["git_history_investigation"])
     b.world.add("file", {"repo": target_repo, "path": terminal_path})
 
     b.chain.add("github_file", {"repo": start_repo, "path": start_path},
-                "github", video_ref_path,
+                "github", capture_path,
                 skill_ids=["persistent_skill_memory"])
     b.chain.add("api_value",
                 {"source": OpenMeteoSource.name,
@@ -208,9 +200,10 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
                 normalization="coldest_hour_two_digit",
                 source_cache_id=weather_cache,
                 skill_ids=["get_coldest_hour"])
-    b.chain.add("youtube_timestamp",
-                {"video_ref": video_ref, "timestamp": "00:%s" % hour},
-                "youtube", "\n".join(clue_lines),
+    b.chain.add("vtt_timestamp",
+                {"repo": start_repo, "path": capture_path,
+                 "timestamp": "00:%s" % hour},
+                "file", "\n".join(clue_lines),
                 skill_ids=["timestamped_video_clue_extraction"])
     b.chain.add("github_file", {"repo": target_repo, "path": routed_path},
                 "github", MIGRATION_MSG,
@@ -224,10 +217,9 @@ def _generate_transfer(b: LevelBuilder) -> LevelResult:
                 "github", b.token)
 
     return b.finalize(start_repo, start_path,
-                      allowed_tools=["github", "youtube", "external_api",
+                      allowed_tools=["github", "external_api",
                                      "memory", "file"],
                       approved_sources=["TreasureHuntBench GitHub",
-                                        "TreasureHuntBench YouTube",
                                         OpenMeteoSource.name],
                       step_budget=150,
                       notes={"terms": terms})

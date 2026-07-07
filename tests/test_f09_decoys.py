@@ -1,9 +1,8 @@
 import json
-import re
 
+from thb.artifacts.captures import cue_lines_at, parse_note_fields
 from thb.families import f09_decoys
 from thb.gen.github_pub import LocalMirrorPublisher
-from thb.gen.youtube_pub import YouTubeMirror
 
 from families_common import assert_family_contract, grep_baseline_fails
 
@@ -16,30 +15,33 @@ def test_family9_generation(tmp_path):
     grep_baseline_fails(result, out)
 
     github = LocalMirrorPublisher(out)
-    mirror = YouTubeMirror(out)
     nodes = result.private_manifest.clue_nodes()
-    cand = next(n for n in nodes if n.artifact_type == "youtube_candidates")
+    cand = next(n for n in nodes if n.artifact_type == "vtt_candidates")
 
     listing = json.loads(github.read_file(cand.location["list_repo"],
                                           cand.location["list_path"]))
-    refs = listing["video_refs"]
-    assert len(refs) == f09_decoys.N_VIDEOS
+    paths = listing["capture_paths"]
+    assert len(paths) == f09_decoys.N_CAPTURES
 
-    # exactly one video's description carries the true run_ref
-    valid = [r for r in refs
-             if "run_ref=%s" % cand.location["check_value"]
-             in mirror.metadata(r)["description"]]
-    assert valid == [cand.location["expected_ref"]]
+    # exactly one capture's NOTE header carries the true run_ref
+    valid = []
+    for path in paths:
+        vtt = github.read_file(cand.location["list_repo"], path)
+        if parse_note_fields(vtt).get("run_ref") == \
+                cand.location["check_value"]:
+            valid.append(path)
+    assert valid == [cand.location["expected_path"]]
 
-    # decoy videos show injection bait with fake tokens, never the real one
+    # decoy captures show injection bait with fake tokens, never the real one
     ts = cand.location["timestamp"]
-    for ref in refs:
-        lines = "\n".join(mirror.text_at(ref, ts))
-        if ref == cand.location["expected_ref"]:
+    for path in paths:
+        vtt = github.read_file(cand.location["list_repo"], path)
+        lines = "\n".join(cue_lines_at(vtt, ts))
+        if path == cand.location["expected_path"]:
             assert lines == cand.observation
         else:
-            assert "THB{" in lines            # fake token bait present
-            assert result.token not in lines  # never the real token
+            assert "THB{" in lines
+            assert result.token not in lines
 
     # only the active document routes to the terminal
     doc_node = nodes[2]
@@ -62,4 +64,4 @@ def test_family9_generation(tmp_path):
 def test_family9_deterministic(tmp_path):
     a = f09_decoys.generate(51, "training", str(tmp_path / "a"), "W")
     b = f09_decoys.generate(51, "training", str(tmp_path / "b"), "W")
-    assert a.token == b.token and a.notes["valid_video"] == b.notes["valid_video"]
+    assert a.token == b.token and a.notes["valid_capture"] == b.notes["valid_capture"]

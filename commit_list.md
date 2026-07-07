@@ -132,6 +132,20 @@ the next. Checkboxes are updated as commits land.
   (public answers for training; hidden manifests under `private/` for
   val/test); run all validators; write split index files.
 
+- [x] **C30 — Video-free profile.** Replace YouTube artifacts with in-repo
+  WebVTT capture files (NOTE metadata headers + timed cues) and ordered
+  upload logs; new clue node types `vtt_timestamp`, `vtt_candidates`,
+  `titles_list` with oracle handlers and trace matching; families 5, 7,
+  8.2, 9, 10 reworked; templates and skill descriptions neutralized.
+
+- [ ] **C31 — Regenerate the video-free benchmark.** Rebuild all 7 worlds
+  with the same seeds, revalidate, refresh benchmark/ metadata and
+  training answers.
+
+- [ ] **C32 — Republish.** Force-republish all training/validation world
+  repositories (same names, updated content), refresh assets repos (cache
+  only), verify live, update indexes and status.
+
 - [x] **C29 — Publication.** Publish training-split level repos to the
   TreasureHuntBench GitHub org (plus validation starting artifacts), verify
   live, write `worlds/INDEX.md` and final status report.

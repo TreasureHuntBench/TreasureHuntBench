@@ -1,7 +1,7 @@
+from thb.artifacts.captures import parse_upload_log_titles
 from thb.artifacts.encodings import acrostic_decode, caesar_decode
 from thb.families import f07_encoded
 from thb.gen.github_pub import LocalMirrorPublisher
-from thb.gen.youtube_pub import YouTubeMirror
 
 from families_common import assert_family_contract, grep_baseline_fails
 
@@ -14,18 +14,18 @@ def test_family7_generation(tmp_path):
     grep_baseline_fails(result, out)
 
     github = LocalMirrorPublisher(out)
-    mirror = YouTubeMirror(out)
     nodes = result.private_manifest.clue_nodes()
-    pl_node = next(n for n in nodes if n.artifact_type == "playlist_titles")
+    log_node = next(n for n in nodes if n.artifact_type == "titles_list")
 
     # decoding the last five titles' first characters yields the tag
-    playlist = mirror.playlist(pl_node.location["playlist_ref"])
-    last5 = playlist["video_titles"][-pl_node.location["last_n"]:]
+    titles = parse_upload_log_titles(
+        github.read_file(log_node.location["repo"],
+                         log_node.location["path"]))
+    last5 = titles[-log_node.location["last_n"]:]
     raw = acrostic_decode(last5)
-    decoded = caesar_decode(raw, pl_node.location["shift"])
-    assert decoded == pl_node.observation
-    # the encoded form differs (otherwise the shift is a no-op)
-    assert raw != decoded
+    decoded = caesar_decode(raw, log_node.location["shift"])
+    assert decoded == log_node.observation
+    assert raw != decoded  # the shift is not a no-op
 
     # the decoded tag names the repo and its route document
     route_node = nodes[2]
