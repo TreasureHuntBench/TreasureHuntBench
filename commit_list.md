@@ -88,7 +88,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C18 — Family 7: Encoded Messages** (playlist acrostic + caesar etc.;
   introduces `decode_explicit_hidden_messages`). Same test contract.
 
-- [ ] **C19 — Family 8: Memory & Skill Transfer** (symbol mappings stored in
+- [x] **C19 — Family 8: Memory & Skill Transfer** (symbol mappings stored in
   one sub-level, required in later ones; introduces
   `persistent_skill_memory`). Same test contract.
 

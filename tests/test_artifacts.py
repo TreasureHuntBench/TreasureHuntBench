@@ -69,6 +69,7 @@ def test_multilingual_all_templates_all_langs():
         "value": "L9S3-2D8", "shift": 5, "msg": "migration-complete",
         "ref": "L8S1", "qid": "Q4190", "lang_name": "German", "n": 5,
         "page": "Passau", "path_template": "records/<repository>.md",
+        "term": "storm",
     }
     for key, translations in STEP_TEMPLATES.items():
         for lang in LANGS:

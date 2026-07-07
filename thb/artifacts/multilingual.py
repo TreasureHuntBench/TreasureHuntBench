@@ -122,6 +122,26 @@ STEP_TEMPLATES: Dict[str, Dict[str, str]] = {
         "de": "Verwende die in {ref} eingeführten Begriffszuordnungen.",
         "ar": "استخدم تعيينات المصطلحات التي قُدّمت في {ref}.",
     },
+    "mapped_weather_var": {
+        "en": "Use the {term} source to find the hour with the lowest temperature for {city} on {date} (timezone {tz}). If several hours tie, choose the earliest. Call the two-digit hour {var}.",
+        "de": "Verwende die {term}-Quelle, um die Stunde mit der niedrigsten Temperatur für {city} am {date} zu finden (Zeitzone {tz}). Bei Gleichstand wähle die früheste. Nenne die zweistellige Stunde {var}.",
+        "ar": "استخدم مصدر {term} لإيجاد الساعة ذات أدنى درجة حرارة في {city} بتاريخ {date} (المنطقة الزمنية {tz}). وعند التعادل اختر الساعة الأبكر. سمِّ الساعة المكوّنة من رقمين {var}.",
+    },
+    "mapped_open_video": {
+        "en": "Open the {term} listed in {path}.",
+        "de": "Öffne den in {path} eingetragenen {term}.",
+        "ar": "افتح {term} المُدرج في {path}.",
+    },
+    "mapped_inspect_video": {
+        "en": "Inspect the {term} at timestamp 00:{var} and read the displayed fields.",
+        "de": "Untersuche den {term} beim Zeitstempel 00:{var} und lies die angezeigten Felder.",
+        "ar": "افحص {term} عند الطابع الزمني 00:{var} واقرأ الحقول المعروضة.",
+    },
+    "mapped_git_before": {
+        "en": "Use the {term}: locate the last commit created before the commit whose message is \"{msg}\". In that commit, open {path}.",
+        "de": "Verwende den {term}: Finde den letzten Commit vor dem Commit mit der Nachricht \"{msg}\". Öffne in diesem Commit {path}.",
+        "ar": "استخدم {term}: حدد آخر إيداع أُنشئ قبل الإيداع الذي رسالته \"{msg}\"، وافتح في ذلك الإيداع {path}.",
+    },
     "wiki_item_var": {
         "en": "Look up the English Wikipedia page titled {page} and read its Wikidata item id from the page metadata. Call that id {var}.",
         "de": "Schlage die englische Wikipedia-Seite mit dem Titel {page} nach und lies die Wikidata-Item-ID aus den Seitenmetadaten. Nenne diese ID {var}.",
