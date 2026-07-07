@@ -92,7 +92,7 @@ the next. Checkboxes are updated as commits land.
   one sub-level, required in later ones; introduces
   `persistent_skill_memory`). Same test contract.
 
-- [ ] **C20 — Family 9: Decoys & Verification** (run_ref/artifact_state
+- [x] **C20 — Family 9: Decoys & Verification** (run_ref/artifact_state
   validation, injection text in invalid artifacts; introduces
   `verify_before_following`). Same test contract.
 
