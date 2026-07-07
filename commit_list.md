@@ -26,7 +26,7 @@ the next. Checkboxes are updated as commits land.
   records, deterministic cache ids). Tests: round-trip serialization, hash
   stability, cache hit/miss.
 
-- [ ] **C05 — External source modules.** `thb/sources/`: base interface +
+- [x] **C05 — External source modules.** `thb/sources/`: base interface +
   Open-Meteo, gold price, FRED, Wikipedia/Wikidata, World Bank; each exposes
   `fetch/normalize/cite/cache`; bundled offline fallback data
   (`thb/sources/data/`) so generation and tests work without network; helpers
