@@ -142,7 +142,7 @@ the next. Checkboxes are updated as commits land.
   with the same seeds, revalidate, refresh benchmark/ metadata and
   training answers.
 
-- [ ] **C32 — Republish.** Force-republish all training/validation world
+- [x] **C32 — Republish.** Force-republish all training/validation world
   repositories (same names, updated content), refresh assets repos (cache
   only), verify live, update indexes and status.
 

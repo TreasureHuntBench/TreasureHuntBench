@@ -10,12 +10,6 @@ A generated world is a directory:
                             (binary files base64-tagged as {"__b64__": ...})
     branches/<branch>/...   final working tree per branch
     issues.json releases.json
-  media_mirror/<ref>/       one video or playlist mirror
-    metadata.json           title, description, tags, privacy, segments
-    captions.vtt            WebVTT captions matching the frames
-    frames/segNN.png        rendered text cards
-    video.mp4               optional (ffmpeg assembly)
-    playlist.json           for playlist refs
   cache/CACHE-*.json        external-source cache entries
   tasks/<task_id>/public_manifest.json
 ```
@@ -33,9 +27,9 @@ interprets them mechanically:
 | `github_file` | repo, path, [branch] | read a file; observation must appear |
 | `branch_doc` | repo, branch, path | same, branch required |
 | `api_value` | source, query, rule | cached external value equals observation |
-| `youtube_timestamp` | video_ref, timestamp | displayed lines equal observation |
-| `youtube_candidates` | list_repo, list_path, check_field, check_value, expected_ref, timestamp | exactly one candidate passes the description check |
-| `playlist_titles` | playlist_ref, last_n, method, shift | acrostic + stated decode equals observation |
+| `vtt_timestamp` | repo, path, timestamp | capture-cue lines at the second equal observation |
+| `vtt_candidates` | list_repo, list_path, check_field, check_value, expected_path, timestamp | exactly one capture passes the NOTE-field check |
+| `titles_list` | repo, path, last_n, method, shift | acrostic + stated decode equals observation |
 | `github_repo_search` | pattern, check_path, check_field, check_value, [check2_*], expected_repo | exactly one candidate passes all checks |
 | `git_history` | repo, before_message, path | payload in the last commit before the anchor |
 | `csv_row` | repo, path, [branch], key | unique key row carries the observation |
@@ -54,3 +48,12 @@ Approved sources (all cached, hashed, and cited at generation time):
 
 A bundled snapshot (`thb/sources/data/bundled.json`) keeps generation,
 validation, and tests fully offline-reproducible.
+
+## Capture artifacts (video-free profile)
+
+Timed clues are WebVTT files committed to repositories: ``NOTE key=value``
+header lines carry validation metadata (e.g. ``run_ref``), timed cues carry
+the displayed fields. Upload logs (ordered JSON title lists) replace
+playlist-order clues. The former YouTube node types (``youtube_timestamp``,
+``youtube_candidates``, ``playlist_titles``) remain supported by the oracle
+for video-backed worlds.
