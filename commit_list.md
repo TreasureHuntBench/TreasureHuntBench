@@ -40,7 +40,7 @@ the next. Checkboxes are updated as commits land.
   Tests: every codec round-trips; archives extract; AR/DE render values
   verbatim.
 
-- [ ] **C07 — World/clue/skill graph builders.** `thb/graphs/`: build, link,
+- [x] **C07 — World/clue/skill graph builders.** `thb/graphs/`: build, link,
   serialize the three private graphs; skill cards; graph integrity checks
   (single path, no orphan clue nodes, skill dependencies resolvable). Tests.
 
