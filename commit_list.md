@@ -85,7 +85,7 @@ the next. Checkboxes are updated as commits land.
 - [x] **C17 — Family 6: Multilingual Clues** (DE/AR operational documents;
   introduces `cross_lingual_clue_following`). Same test contract.
 
-- [ ] **C18 — Family 7: Encoded Messages** (playlist acrostic + caesar etc.;
+- [x] **C18 — Family 7: Encoded Messages** (playlist acrostic + caesar etc.;
   introduces `decode_explicit_hidden_messages`). Same test contract.
 
 - [ ] **C19 — Family 8: Memory & Skill Transfer** (symbol mappings stored in
