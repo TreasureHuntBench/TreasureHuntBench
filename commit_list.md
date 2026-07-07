@@ -96,7 +96,7 @@ the next. Checkboxes are updated as commits land.
   validation, injection text in invalid artifacts; introduces
   `verify_before_following`). Same test contract.
 
-- [ ] **C21 — Family 10: Grand Multi-Source Hunt** (composes all prior skills
+- [x] **C21 — Family 10: Grand Multi-Source Hunt** (composes all prior skills
   across weather → video → market key → repo filtering → git history →
   decoding → CSV → ZIP → AR document → token). Same test contract.
 
