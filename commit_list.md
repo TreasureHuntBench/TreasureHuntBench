@@ -132,6 +132,6 @@ the next. Checkboxes are updated as commits land.
   (public answers for training; hidden manifests under `private/` for
   val/test); run all validators; write split index files.
 
-- [ ] **C29 — Publication.** Publish training-split level repos to the
+- [x] **C29 — Publication.** Publish training-split level repos to the
   TreasureHuntBench GitHub org (plus validation starting artifacts), verify
   live, write `worlds/INDEX.md` and final status report.

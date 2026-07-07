@@ -18,12 +18,19 @@ synthetic treasure token per level.
 | Path | Contents |
 |---|---|
 | `thb/` | Benchmark system: generators, publishers, validators, evaluator, baselines, CLI |
-| `tests/` | Test suite |
+| `tests/` | Test suite (100 tests, runs offline) |
 | `docs/` | Benchmark documentation |
-| `worlds/` | Generated public benchmark artifacts (training split) |
+| `benchmark/` | The MVP benchmark: task indexes, public manifests, training answers + oracle traces |
+| `worlds/INDEX.md` | Verified list of the 135 published world repositories |
+| `scripts/` | Benchmark generation and publication scripts |
+| `STATUS.md` | Build status, split table, known limitations |
 | `TreasureHuntBenchDescription.md` | Full benchmark specification |
 | `IMPLEMENTATION_PLAN.md` | Engineering plan |
 | `commit_list.md` | Atomic commit roadmap |
+
+The MVP benchmark is live: **77 tasks** (33 training with released answers,
+22 validation, 22 test held privately) across **7 generated worlds**, with
+**135 repositories** published to this organization.
 
 ## Quick start
 
