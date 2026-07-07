@@ -54,7 +54,7 @@ the next. Checkboxes are updated as commits land.
   invalid under an explicit stated rule; decoy manifest entries. Tests: decoys
   always violate their stated rule; never contain the real token.
 
-- [ ] **C10 — GitHub publisher.** `thb/gen/github_pub.py`: create/update org
+- [x] **C10 — GitHub publisher.** `thb/gen/github_pub.py`: create/update org
   repos, branches, commits (incl. history construction), issues, tags,
   releases via the GitHub REST API (token from `gh auth token`); dry-run mode
   writes the same tree locally. Tests: dry-run tree correctness; live smoke
