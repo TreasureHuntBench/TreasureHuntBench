@@ -8,7 +8,7 @@ the next. Checkboxes are updated as commits land.
   `pyproject.toml`/`setup.cfg`, `thb` package skeleton with empty subpackages,
   pytest wiring, spec document. Verify: `pip install -e .` and `pytest` run.
 
-- [ ] **C02 — Deterministic RNG + token minting.** `thb/core/rng.py`
+- [x] **C02 — Deterministic RNG + token minting.** `thb/core/rng.py`
   (`TaskRng`: named substreams, stable across runs), `thb/core/tokens.py`
   (mint `THB{...}` tokens, sha256 hashing, verification helper). Tests:
   same seed → same values; different names → independent streams; token
