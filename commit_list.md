@@ -123,7 +123,7 @@ the next. Checkboxes are updated as commits land.
   every family, validates all levels, solves with oracle, evaluates traces,
   runs baselines, and checks the QC checklist programmatically.
 
-- [ ] **C27 — Documentation.** `docs/`: getting started, world format, task
+- [x] **C27 — Documentation.** `docs/`: getting started, world format, task
   manifests, trace format, scoring, split policy, security rules, dataset
   card skeleton.
 
