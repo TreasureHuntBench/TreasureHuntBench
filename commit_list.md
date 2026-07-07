@@ -49,7 +49,7 @@ the next. Checkboxes are updated as commits land.
   but full determinism per seed; renders EN/DE/AR via multilingual module.
   Tests: all required fields present, no banned boilerplate phrases.
 
-- [ ] **C09 — Decoy generator.** `thb/gen/decoys.py`: near-duplicate repos,
+- [x] **C09 — Decoy generator.** `thb/gen/decoys.py`: near-duplicate repos,
   wrong run_ref / inactive-state / wrong-date / wrong-shift decoys, each
   invalid under an explicit stated rule; decoy manifest entries. Tests: decoys
   always violate their stated rule; never contain the real token.
