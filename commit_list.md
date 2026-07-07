@@ -100,7 +100,7 @@ the next. Checkboxes are updated as commits land.
   across weather → video → market key → repo filtering → git history →
   decoding → CSV → ZIP → AR document → token). Same test contract.
 
-- [ ] **C22 — Validators.** `thb/validate/`: oracle solver (mechanical clue
+- [x] **C22 — Validators.** `thb/validate/`: oracle solver (mechanical clue
   graph walker over local world + cache), leakage scanner (banned phrases,
   banned filenames, token exposure, grep-shortcut simulation, private-file
   exposure), one-answer validator (unique candidate/path/token, tie-break
