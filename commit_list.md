@@ -66,7 +66,7 @@ the next. Checkboxes are updated as commits land.
   upload path using local OAuth credentials (never committed). Tests: mirror
   contains correct text at the correct timestamp; captions parse.
 
-- [ ] **C12 — Family 1: Basic Clue Following.** Generator + oracle route +
+- [x] **C12 — Family 1: Basic Clue Following.** Generator + oracle route +
   tests (oracle recovers token; validators pass; grep baseline fails).
 
 - [ ] **C13 — Family 2: Real-Website Navigation** (wiki-based intermediate

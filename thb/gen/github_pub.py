@@ -11,23 +11,47 @@ commits, branches, issues, releases). The publisher materializes them:
   created through the REST API using the ``gh`` CLI token.
 """
 
+import base64
 import json
 import os
 import shutil
 import subprocess
 import tempfile
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from ..artifacts.files import write_json, write_text
 
 ORG = "TreasureHuntBench"
 
+FileContent = Union[str, bytes]
+
+
+def _write_any(path: str, content: FileContent) -> None:
+    if isinstance(content, bytes):
+        parent = os.path.dirname(path)
+        if parent:
+            os.makedirs(parent, exist_ok=True)
+        with open(path, "wb") as fh:
+            fh.write(content)
+    else:
+        write_text(path, content)
+
+
+def _jsonable_tree(tree: Dict[str, FileContent]) -> Dict[str, Any]:
+    out: Dict[str, Any] = {}
+    for path, content in tree.items():
+        if isinstance(content, bytes):
+            out[path] = {"__b64__": base64.b64encode(content).decode("ascii")}
+        else:
+            out[path] = content
+    return out
+
 
 @dataclass
 class CommitSpec:
     message: str
-    files: Dict[str, str]                 # path -> content (utf-8 text)
+    files: Dict[str, FileContent]         # path -> text or binary content
     remove: List[str] = field(default_factory=list)
 
 
@@ -81,17 +105,22 @@ class LocalMirrorPublisher:
             shutil.rmtree(rdir)
         main_history = _apply_commits(spec.commits)
         history = {spec.default_branch: [
-            {"message": m, "files": snap} for m, snap in main_history]}
+            {"message": m, "files": _jsonable_tree(snap)}
+            for m, snap in main_history]}
         final_main = main_history[-1][1] if main_history else {}
         for branch, commits in spec.branches.items():
             branch_history = _apply_commits(commits, base=final_main)
-            history[branch] = [{"message": m, "files": snap}
+            history[branch] = [{"message": m, "files": _jsonable_tree(snap)}
                                for m, snap in branch_history]
-        # final tree per branch
-        for branch, entries in history.items():
-            tree = entries[-1]["files"] if entries else {}
+        # final tree per branch (from the raw snapshots, binary-safe)
+        finals = {spec.default_branch:
+                  main_history[-1][1] if main_history else {}}
+        for branch, commits in spec.branches.items():
+            branch_history = _apply_commits(commits, base=finals[spec.default_branch])
+            finals[branch] = branch_history[-1][1] if branch_history else {}
+        for branch, tree in finals.items():
             for path, content in tree.items():
-                write_text(os.path.join(rdir, "branches", branch, path),
+                _write_any(os.path.join(rdir, "branches", branch, path),
                            content)
         write_json(os.path.join(rdir, "repo.json"),
                    {"name": spec.name, "org": ORG,
@@ -114,6 +143,9 @@ class LocalMirrorPublisher:
         full = os.path.join(self.repo_dir(repo), "branches", branch, path)
         with open(full, encoding="utf-8") as fh:
             return fh.read()
+
+    def file_path(self, repo: str, path: str, branch: str = "main") -> str:
+        return os.path.join(self.repo_dir(repo), "branches", branch, path)
 
     def history(self, repo: str) -> Dict[str, List[Dict[str, Any]]]:
         with open(os.path.join(self.repo_dir(repo), "history.json"),
@@ -211,7 +243,7 @@ class LiveGitHubPublisher:
     @staticmethod
     def _write_commit(workdir: str, commit: CommitSpec, env) -> None:
         for path, content in commit.files.items():
-            write_text(os.path.join(workdir, path), content)
+            _write_any(os.path.join(workdir, path), content)
         for path in commit.remove:
             target = os.path.join(workdir, path)
             if os.path.exists(target):
